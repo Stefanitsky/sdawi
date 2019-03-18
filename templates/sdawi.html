@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Database Access Web Interface</title>
+</head>
+<body>
+	<p>HAI, {{ login }}!</p>
+	<a href="/logout">Logout</a>
+	{% for data in db_data %}
+		<p>{{ data[0] }}</p>
+	{% endfor %}
+</body>
+</html>

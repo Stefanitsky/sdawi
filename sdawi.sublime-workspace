@@ -1,0 +1,799 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"flas",
+				"flash"
+			],
+			[
+				"u",
+				"url\tDjango template url"
+			],
+			[
+				"pa",
+				"padding-top\tproperty"
+			],
+			[
+				"mar",
+				"margin-right\tproperty"
+			],
+			[
+				"li",
+				"link\tTag"
+			],
+			[
+				"h",
+				"html\thtml"
+			],
+			[
+				"pri",
+				"print_instance_count\tfunction"
+			],
+			[
+				"act",
+				"actsTriple\tstatement"
+			],
+			[
+				"insta",
+				"instancePrint\tfunction"
+			],
+			[
+				"meth",
+				"meth2\tfunction"
+			],
+			[
+				"_PPT2",
+				"_PPT2__secretKey"
+			],
+			[
+				"_PPT2__",
+				"_PPT2__pseudoMethod"
+			],
+			[
+				"_get",
+				"__getSecretKey"
+			],
+			[
+				"Atrt",
+				"AttributeError\tclass"
+			],
+			[
+				"NotIm",
+				"NotImplementedError\tclass"
+			],
+			[
+				"super",
+				"supercls\tstatement"
+			],
+			[
+				"ke",
+				"keys\tfunction"
+			],
+			[
+				"give",
+				"giveRaises\tfunction"
+			],
+			[
+				"__",
+				"__name__"
+			],
+			[
+				"dis",
+				"displayData\tfunction"
+			],
+			[
+				"Simpl",
+				"SimpleTestCase\tclass"
+			],
+			[
+				"he",
+				"header\tTag"
+			],
+			[
+				"tem",
+				"template_name"
+			],
+			[
+				"vi",
+				"views"
+			],
+			[
+				"filte",
+				"filter_test\tstatement"
+			],
+			[
+				"std",
+				"stdout\tinstance"
+			],
+			[
+				"sum",
+				"sumtree\tfunction"
+			],
+			[
+				"b",
+				"builtins"
+			],
+			[
+				"__std",
+				"__stdout__\tinstance"
+			],
+			[
+				"try",
+				"try\tTry/Except/Else"
+			],
+			[
+				"forma",
+				"formatted\tstatement"
+			],
+			[
+				"lo",
+				"lorem\tLorem ipsum"
+			],
+			[
+				"prim",
+				"prime_numbers\tstatement"
+			],
+			[
+				"get",
+				"get_palindromes_in_range\tfunction"
+			],
+			[
+				"num",
+				"num_list\tstatement"
+			],
+			[
+				"fra",
+				"Fraction\tclass"
+			],
+			[
+				"div",
+				"div_numbers\tstatement"
+			],
+			[
+				"pf",
+				"pf_list\tstatement"
+			],
+			[
+				"tu",
+				"turtle\tmodule"
+			],
+			[
+				"dic",
+				"dict\tclass"
+			],
+			[
+				"dict",
+				"dictionary\tstatement"
+			],
+			[
+				"in",
+				"insert\tfunction"
+			],
+			[
+				"l",
+				"lorem\tLorem ipsum"
+			],
+			[
+				"g",
+				"groups〔function〕"
+			],
+			[
+				"byte",
+				"byteTest〔variable〕"
+			],
+			[
+				"for",
+				"for〔keyword〕"
+			],
+			[
+				"str",
+				"string〔variable〕"
+			],
+			[
+				"ele",
+				"ElementTree〔module〕"
+			],
+			[
+				"text",
+				"text-align\tproperty"
+			],
+			[
+				"va",
+				"$value〔variable〕"
+			],
+			[
+				"tex",
+				"text-align\tproperty"
+			],
+			[
+				"wi",
+				"width\tproperty"
+			],
+			[
+				"coun",
+				"$count〔variable〕"
+			],
+			[
+				"valu",
+				"$values_keys〔variable〕"
+			],
+			[
+				"values",
+				"values_count"
+			],
+			[
+				"val",
+				"$values_count〔variable〕"
+			],
+			[
+				"cu",
+				"$customer_name〔variable〕"
+			],
+			[
+				"FETCH_",
+				"FETCH_COLUMN"
+			],
+			[
+				"table",
+				"$table_description〔variable〕"
+			],
+			[
+				"co",
+				"$column_count〔variable〕"
+			],
+			[
+				"cat",
+				"$category〔variable〕"
+			],
+			[
+				"PDO",
+				"PDOException〔class〕"
+			],
+			[
+				"ta",
+				"$table_name〔variable〕"
+			],
+			[
+				"t",
+				"th></t"
+			],
+			[
+				"qu",
+				"query"
+			],
+			[
+				"data",
+				"databases"
+			],
+			[
+				"pub",
+				"public"
+			],
+			[
+				"fun",
+				"function"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "sdawi.py",
+			"settings":
+			{
+				"buffer_size": 309,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/login.html",
+			"settings":
+			{
+				"buffer_size": 1724,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"tmp",
+				"Tmpl: Create python"
+			],
+			[
+				"pytho",
+				"Tmpl: Create python"
+			],
+			[
+				"s:block",
+				"Snippet: block"
+			],
+			[
+				"Snippet: exten",
+				"Snippet: extends"
+			],
+			[
+				"Snippet: django template ex",
+				"Snippet: Django template lorem template text"
+			],
+			[
+				"Snippet: django template bl",
+				"Snippet: Django template block"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"tmpl",
+				"Tmpl: Create python"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"re",
+				"Package Control: Remove Package"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"color ",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"edit",
+				"PackageDev: Edit Current Color Scheme"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"magicP",
+				"Set Syntax: MagicPython"
+			],
+			[
+				"sublimelinter: ",
+				"SublimeLinter: Toggle Highlights"
+			],
+			[
+				"ui: sele",
+				"UI: Select Color Scheme"
+			],
+			[
+				"edit theme",
+				"PackageDev: Edit Current Theme"
+			],
+			[
+				"insta\t",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"ins\t",
+				"Indexing Status"
+			],
+			[
+				"istall",
+				"Package Control: Install Package"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings"
+			],
+			[
+				"install\t",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Enable Package"
+			],
+			[
+				"pack\t",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: \t",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control:remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 150.146148682,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/stefanitsky/projects/sdawi",
+		"/home/stefanitsky/projects/sdawi/static",
+		"/home/stefanitsky/projects/sdawi/static/js",
+		"/home/stefanitsky/projects/sdawi/templates"
+	],
+	"file_history":
+	[
+		"/home/stefanitsky/projects/sdawi/Pipfile",
+		"/home/stefanitsky/projects/sdawi/templates/login.html",
+		"/home/stefanitsky/projects/sdawi/login_form.py",
+		"/home/stefanitsky/projects/sdawi/templates/_util.html",
+		"/home/stefanitsky/projects/sdawi/templates/index.html",
+		"/home/stefanitsky/projects/blog/blog/urls.py",
+		"/home/stefanitsky/projects/blog/templates/index.html",
+		"/home/stefanitsky/projects/blog/templates/post_detail.html",
+		"/home/stefanitsky/projects/blog/blog/views.py",
+		"/home/stefanitsky/projects/blog/templates/base.html",
+		"/home/stefanitsky/projects/blog/static/css/base.css",
+		"/home/stefanitsky/projects/blog/blog_project/settings.py",
+		"/home/stefanitsky/projects/blog/blog_project/urls.py",
+		"/home/stefanitsky/projects/blog/blog/models.py",
+		"/home/stefanitsky/projects/blog/blog/admin.py",
+		"/home/stefanitsky/projects/pylrn/person.py",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/User/Anaconda.sublime-settings",
+		"/home/stefanitsky/projects/pylrn/makedb.py",
+		"/home/stefanitsky/projects/pylrn/classtools.py",
+		"/home/stefanitsky/projects/pylrn/a.py",
+		"/home/stefanitsky/projects/pylrn/t/test.py",
+		"/home/stefanitsky/projects/pylrn/t/__init__.py",
+		"/home/stefanitsky/projects/pylrn/t2/test.py",
+		"/home/stefanitsky/projects/pylrn/pylrn.sublime-project",
+		"/home/stefanitsky/projects/pages/pages/tests.py",
+		"/home/stefanitsky/projects/pages/templates/base.html",
+		"/home/stefanitsky/projects/pages/templates/home.html",
+		"/home/stefanitsky/projects/pages/templates/about.html",
+		"/home/stefanitsky/projects/pages/pages/urls.py",
+		"/home/stefanitsky/projects/pages/pages/views.py",
+		"/home/stefanitsky/projects/pages/pages_project/settings.py",
+		"/home/stefanitsky/projects/pages/pages_project/urls.py",
+		"/home/stefanitsky/projects/djt/helloworld_project/settings.py",
+		"/home/stefanitsky/projects/djt/helloworld_project/urls.py",
+		"/home/stefanitsky/projects/djt/pages/urls.py",
+		"/home/stefanitsky/projects/djt/pages/views.py",
+		"/home/stefanitsky/projects/py_lrn/learn.py",
+		"/home/stefanitsky/google_drive/Django for Beginners Learn web development with Django 2.0.pdf",
+		"/home/stefanitsky/projects/py_lrn/pylrn.sublime-project",
+		"/home/stefanitsky/test.txt",
+		"/home/stefanitsky/projects/py_lrn/test.txt",
+		"/home/stefanitsky/projects/py_lrn/symb_list.txt",
+		"/home/stefanitsky/projects/py_lrn/log.txt",
+		"/home/stefanitsky/projects/py_lrn/nums.txt",
+		"/home/stefanitsky/Downloads/postgresql-11.2/src/nls-global.mk",
+		"/home/stefanitsky/projects/py_lrn/text.txt",
+		"/home/stefanitsky/projects/py_lrn/mprofile_20190305130417.dat",
+		"/home/stefanitsky/projects/py_lrn/mprofile_20190305130235.dat",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/Anaconda/Default (Linux).sublime-keymap",
+		"/home/stefanitsky/projects/py_lrn/data.txt",
+		"/home/stefanitsky/projects/py_lrn/index.html",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/Dayle Rees Color Schemes/legacy/Juicy.tmTheme",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/Djaneiro/Settings/HTML (Django).sublime-settings",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/User/HTML (Django).sublime-settings",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/SublimeCodeIntel/SublimeCodeIntel.sublime-settings",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/User/SublimeCodeIntel.sublime-settings",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/PHP/PHP.sublime-completions",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/Anaconda/README.md",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/User/Package Control.sublime-settings",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/User/Package Control.user-ca-bundle",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/User/Package Control.merged-ca-bundle",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/User/C#.sublime-settings",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/User/cshtml.sublime-settings",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/User/Package Control.last-run",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/User/HTML.sublime-settings",
+		"/home/stefanitsky/.config/sublime-text-3/Packages/User/ASP.sublime-settings",
+		"/home/stefanitsky/projects/nodejs_test/webapp.js",
+		"/home/stefanitsky/projects/sjango_test/sjango_test/urls.py",
+		"/home/stefanitsky/projects/sjango_test/polls/views.py",
+		"/home/stefanitsky/projects/sjango_test/polls/urls.py",
+		"/home/stefanitsky/projects/sjango_test/sjango_test/settings.py",
+		"/etc/httpd/conf/extra/httpd-vhosts.conf",
+		"/home/stefanitsky/projects/MyApp/Program.cs",
+		"/home/stefanitsky/projects/SDAWI/public/sdawi.php",
+		"/home/stefanitsky/projects/SDAWI/public/css/style.css",
+		"/home/stefanitsky/projects/SDAWI/public/index.php",
+		"/home/stefanitsky/projects/SDAWI/public/css/test.css",
+		"/home/stefanitsky/projects/SDAWI/public/test.php",
+		"/home/stefanitsky/projects/Lector/lector/contentwidgets.py",
+		"/home/stefanitsky/projects/Lector/lector/settings.py",
+		"/home/stefanitsky/projects/Lector/setup.cfg",
+		"/home/stefanitsky/Downloads/bashrc",
+		"/home/stefanitsky/projects/SDAWI/config.php",
+		"/home/stefanitsky/projects/SDAWI/index.php",
+		"/home/stefanitsky/projects/SDAWI/app/Http/Controllers/PagesController.php",
+		"/home/stefanitsky/projects/SDAWI/routes/web.php",
+		"/home/stefanitsky/projects/SDAWI/resources/views/sdawi.blade.php",
+		"/home/stefanitsky/projects/SDAWI/database/migrations/2014_10_12_000000_create_users_table.php",
+		"/home/stefanitsky/projects/SDAWI/resources/views/layout.blade.php",
+		"/home/stefanitsky/projects/SDAWI/resources/views/welcome.blade.php",
+		"/home/stefanitsky/projects/SDAWI/.env",
+		"/home/stefanitsky/projects/SDAWI/composer.json",
+		"/home/stefanitsky/projects/SDAWI/src/HelloWorld.php",
+		"/home/stefanitsky/projects/SDAWI/.gitignore"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"PPT ",
+			"itali"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "sdawi.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 309,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								309,
+								309
+							]
+						],
+						"settings":
+						{
+							"SL.13.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"SL.87.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"default_extension": "py",
+							"syntax": "Packages/Python 3/Python3.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "templates/login.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1724,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1195,
+								1195
+							]
+						],
+						"settings":
+						{
+							"SL.15.region_keys":
+							[
+							],
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 43.043043043
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "sdawi.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/projects/SDAWI/sdawi.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 216.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
