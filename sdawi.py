@@ -16,6 +16,8 @@ def index():
         cursor = connect.cursor()
         cursor.execute('SELECT datname FROM pg_database;')
         db_data = cursor.fetchall()
+        cursor.close()
+        connect.close()
         return render_template('sdawi.html', login=login, db_data=db_data)
     else:
         return render_template('login.html', error='Wrong login or password')
@@ -36,6 +38,13 @@ def logout():
     session.pop('login', None)
     session.pop('password', None)
     return redirect(url_for('index'))
+
+
+@app.route('/get_db_info', methods=['POST'])
+def get_db_info():
+	db_name = request.form['db_name']
+	print(db_name)
+	return 'Hai'
 
 
 def db_connect(user, password, host='localhost', db_name='postgres'):

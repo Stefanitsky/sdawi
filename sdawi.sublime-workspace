@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"conn",
+				"connect\tstatement"
+			],
+			[
+				"db",
+				"db_data\tstatement"
+			],
+			[
+				"redire",
+				"redirect_to_index\tstatement"
+			],
+			[
+				"cool",
+				"get_cookie_secure\tFlask"
+			],
+			[
 				"flas",
 				"flash"
 			],
@@ -283,7 +299,16 @@
 			"file": "sdawi.py",
 			"settings":
 			{
-				"buffer_size": 309,
+				"buffer_size": 1372,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/sdawi.html",
+			"settings":
+			{
+				"buffer_size": 233,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -292,7 +317,7 @@
 			"file": "templates/login.html",
 			"settings":
 			{
-				"buffer_size": 1724,
+				"buffer_size": 1762,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -475,13 +500,11 @@
 	},
 	"expanded_folders":
 	[
-		"/home/stefanitsky/projects/sdawi",
-		"/home/stefanitsky/projects/sdawi/static",
-		"/home/stefanitsky/projects/sdawi/static/js",
-		"/home/stefanitsky/projects/sdawi/templates"
+		"/home/stefanitsky/projects/sdawi"
 	],
 	"file_history":
 	[
+		"/home/stefanitsky/projects/sdawi/templates/sdawi.html",
 		"/home/stefanitsky/projects/sdawi/Pipfile",
 		"/home/stefanitsky/projects/sdawi/templates/login.html",
 		"/home/stefanitsky/projects/sdawi/login_form.py",
@@ -615,7 +638,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -624,22 +647,25 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 309,
+						"buffer_size": 1372,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								309,
-								309
+								931,
+								931
 							]
 						],
 						"settings":
 						{
 							"SL.13.region_keys":
 							[
-								"sublime_linter.protected_regions"
+								"SL.flake8.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
+								"sublime_linter.protected_regions",
+								"SL.flake8.Highlights.|f7422535f6149cd4db5e9855fadeddce357a25d3d1716a4dc48286699371109b|region.yellowish markup.warning.sublime_linter|2340",
+								"SL.flake8.Highlights.|90fefb9c82aefeeb126d234f39696e762a139baa30db4c524bf301244f9c21a1|region.yellowish markup.warning.sublime_linter|2340"
 							],
 							"SL.87.region_keys":
 							[
@@ -658,6 +684,10 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"default_extension": "py",
@@ -667,28 +697,59 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "templates/login.html",
+					"file": "templates/sdawi.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1724,
+						"buffer_size": 233,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1195,
-								1195
+								233,
+								233
 							]
 						],
 						"settings":
 						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "templates/login.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1762,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1669,
+								1669
+							]
+						],
+						"settings":
+						{
+							"SL.14.region_keys":
+							[
+							],
 							"SL.15.region_keys":
 							[
 							],
@@ -697,10 +758,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 612.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
