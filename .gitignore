@@ -1,0 +1,6 @@
+# Flask.Python Stack
+*.py[cod]
+__pycache__/
+
+# Sublime Text 3
+*.sublime-project

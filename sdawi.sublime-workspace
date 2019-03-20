@@ -4,12 +4,12 @@
 		"selected_items":
 		[
 			[
-				"conn",
-				"connect\tstatement"
+				"db",
+				"db_name\tparam"
 			],
 			[
-				"db",
-				"db_data\tstatement"
+				"conn",
+				"connect\tstatement"
 			],
 			[
 				"redire",
@@ -299,7 +299,7 @@
 			"file": "sdawi.py",
 			"settings":
 			{
-				"buffer_size": 1372,
+				"buffer_size": 1551,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -308,16 +308,7 @@
 			"file": "templates/sdawi.html",
 			"settings":
 			{
-				"buffer_size": 233,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/login.html",
-			"settings":
-			{
-				"buffer_size": 1762,
+				"buffer_size": 1294,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -500,13 +491,15 @@
 	},
 	"expanded_folders":
 	[
-		"/home/stefanitsky/projects/sdawi"
+		"/home/stefanitsky/projects/sdawi",
+		"/home/stefanitsky/projects/sdawi/templates"
 	],
 	"file_history":
 	[
+		"/home/stefanitsky/projects/sdawi/templates/login.html",
+		"/home/stefanitsky/projects/sdawi/static/css/base.css",
 		"/home/stefanitsky/projects/sdawi/templates/sdawi.html",
 		"/home/stefanitsky/projects/sdawi/Pipfile",
-		"/home/stefanitsky/projects/sdawi/templates/login.html",
 		"/home/stefanitsky/projects/sdawi/login_form.py",
 		"/home/stefanitsky/projects/sdawi/templates/_util.html",
 		"/home/stefanitsky/projects/sdawi/templates/index.html",
@@ -605,7 +598,7 @@
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 27.0
 	},
 	"find_in_files":
 	{
@@ -638,7 +631,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -647,25 +640,25 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1372,
+						"buffer_size": 1551,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								931,
-								931
+								978,
+								978
 							]
 						],
 						"settings":
 						{
 							"SL.13.region_keys":
 							[
-								"SL.flake8.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
 								"sublime_linter.protected_regions",
+								"SL.flake8.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
 								"SL.flake8.Highlights.|f7422535f6149cd4db5e9855fadeddce357a25d3d1716a4dc48286699371109b|region.yellowish markup.warning.sublime_linter|2340",
-								"SL.flake8.Highlights.|90fefb9c82aefeeb126d234f39696e762a139baa30db4c524bf301244f9c21a1|region.yellowish markup.warning.sublime_linter|2340"
+								"SL.flake8.Highlights.|97e371a60d68913a4b34ddb16f69dd044ccd9d7fe384a0da55360fac9a1c8acf|region.yellowish markup.warning.sublime_linter|2340"
 							],
 							"SL.87.region_keys":
 							[
@@ -688,16 +681,20 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"default_extension": "py",
 							"syntax": "Packages/Python 3/Python3.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 357.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -706,43 +703,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 233,
+						"buffer_size": 1294,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								233,
-								233
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "templates/login.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1762,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1669,
-								1669
+								812,
+								812
 							]
 						],
 						"settings":
@@ -750,15 +719,10 @@
 							"SL.14.region_keys":
 							[
 							],
-							"SL.15.region_keys":
-							[
-							],
-							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 612.0,
+						"translation.y": 204.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -769,7 +733,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 26.0
+		"height": 27.0
 	},
 	"input":
 	{
@@ -810,7 +774,7 @@
 	"project": "sdawi.sublime-project",
 	"replace":
 	{
-		"height": 48.0
+		"height": 50.0
 	},
 	"save_all_on_build": true,
 	"select_file":
