@@ -4,3 +4,4 @@ __pycache__/
 
 # Sublime Text 3
 *.sublime-project
+*.sublime-workspace

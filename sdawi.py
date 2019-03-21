@@ -8,6 +8,7 @@ redirect, session, url_for, jsonify, g
 import psycopg2
 import config
 
+
 app = Flask(__name__)
 
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
@@ -27,10 +28,10 @@ def index():
 	Main route.
 	Returns authorization form or interface template depending on session.
 	'''
-    if get_db_connect():
-        return render_template('sdawi.html')
+    if get_db_connect() is not None:
+    	return render_template('sdawi.html')
     else:
-        return render_template('login.html')
+    	return render_template('login.html')
 
 
 @app.route('/login', methods=['POST'])
@@ -66,46 +67,60 @@ def logout():
 
 @app.route('/get_db_info', methods=['POST'])
 def get_db_info():
-    data = request.get_json()
-    print(data)
-    return get_db_tree()
+    data_request = request.get_json()
+    data_type = data_request.get('type', None)
+    if data_type == 'db_tree':
+    	return get_db_tree(data_request)
+    else:
+    	return 'Error'
 
 
-# TODO: parse JSON data from request and return db tree as JSON
-def get_db_tree():
-	return jsonify(
-            get_db_query_result(
+def get_db_tree(data_request):
+	db_names = (get_db_query_result(
                 "SELECT datname FROM pg_database WHERE datistemplate = 'f';"))
+	tables_for = data_request.get('get_tables_for_db')
+	data = {}
+	for db_name in db_names:
+		data[db_name] = get_db_tables(db_name) if db_name in tables_for else []
+	print('[get_db_tree]:', data)
+	data = jsonify(data)
+	return data
 
+
+def get_db_tables(db_name):
+	new_db_connect = db_connect(db_name)
+	query = "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';"
+	result = get_db_query_result(query, new_db_connect)
+	new_db_connect.close()
+	return result
 
 # TODO: external db tools file
-def db_connect():
+def db_connect(db_name='postgres'):
     connection_string = 'dbname={} user={} password={} host={}'.format(
-        g.db_name, g.db_user, g.db_password, g.db_host)
+        db_name, g.db_user, g.db_password, g.db_host)
     try:
         connect = psycopg2.connect(connection_string)
         return connect
-    except psycopg2.ProgrammingError as e:
-        print(e.pgerror)
+    except psycopg2.Error:
         return None
 
 
 def get_db_connect():
     if not hasattr(g, 'db_connect'):
-        g.db_connect = db_connect()
+        g.db_connect = db_connect(g.db_name)
     return g.db_connect
 
 
-@app.teardown_appcontext
 def db_close(exception):
     if hasattr(g, 'db_connect'):
         g.db_connect.close()
 
 
-def get_db_query_result(query):
-    cursor = get_db_connect().cursor()
+def get_db_query_result(query, db_connection=None):
+    cursor = get_db_connect().cursor() if db_connection is None else db_connection.cursor()
     cursor.execute(query)
-    result = cursor.fetchall()
+    # Sets value as value, not as tuple
+    result = [value[0] for value in cursor.fetchall()]
     cursor.close()
     return result
 

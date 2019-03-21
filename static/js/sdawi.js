@@ -8,8 +8,3 @@ $(document).ready(function() {
 		1000
 	);
 });
-
-// $(document.body).on('click', '.db_name' ,function() {
-// 	var db_name = $(this).closest('a').html();
-// 	db_table_list = show_db_tables($(this).closest('a'));
-// });
