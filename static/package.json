@@ -1,0 +1,14 @@
+{
+  "name": "static",
+  "version": "1.0.0",
+  "description": "Dependency maintenance for the flask app",
+  "main": "index.js",
+  "author": "stefanitsky",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.3.1",
+    "jstree": "^3.3.7",
+    "slickgrid": "^2.4.4"
+  }
+}
