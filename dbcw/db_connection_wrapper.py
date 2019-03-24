@@ -1,3 +1,6 @@
+import sys
+
+
 class DBConnectionWrapper:
     '''
     Database connection wrapper.
@@ -69,17 +72,21 @@ class DBConnectionWrapper:
                                                       **settings_temp)
                 return connection_temp.get_tables_list(db_name)
                 connection_temp.close()
-                del connection_temp
         else:
             return 'Unknown database engine!'
 
-    def get_table_rows(self, table_name):
-        if self.engine == 'postgres':
-            return self.execute_query('SELECT * FROM {};'.format(table_name))
 
-    def get_table_columns(self, table_name):
+    def get_table_data(self, db_name, table_name):
         if self.engine == 'postgres':
-            result = self.execute_query(
-                "SELECT column_name FROM information_schema.columns \
-                WHERE table_name = '{}';".format(table_name))
-            return [column_name[0] for column_name in result]
+            if db_name == self.settings['dbname']:
+                rows = self.execute_query(
+                    'SELECT * FROM {};'.format(table_name))
+                columns = [name[0] for name in self.cursor.description]
+                return rows, columns
+            else:
+                settings_temp = self.settings
+                settings_temp['dbname'] = db_name
+                connection_temp = DBConnectionWrapper(self.engine,
+                                                      **settings_temp)
+                return connection_temp.get_table_data(db_name, table_name)
+                connection_temp.close()

@@ -40,22 +40,31 @@ class RequestData {
 class TreeRequest extends RequestData {
 	constructor() {
 		super('db_tree');
-		this.db_names_to_request_tables = [];
-		this.request_data['request_tables_list_for_db'] = this.db_names_to_request_tables;
+		this.request_tables_list_for_db = [];
+		this.request_data['request_tables_list_for_db'] = this.request_tables_list_for_db;
 	}
 
-	check_db_name(db_name) {
-		if(this.db_names_to_request_tables.includes(db_name)) {
-       		this.db_names_to_request_tables.splice(this.db_names_to_request_tables.indexOf(db_name), 1);
-   		}
-   		else {
-   			this.db_names_to_request_tables.push(db_name);
-   		}
+	remove_db_name(db_name) {
+		if (!this.request_tables_list_for_db.includes(db_name)) return;
+		this.request_tables_list_for_db.splice(this.request_tables_list_for_db.indexOf(db_name), 1);
 	}
 
-	// Calls a method that displays the received JSON data as a html tree
+	add_db_name(db_name) {
+		if (this.request_tables_list_for_db.includes(db_name)) return;
+		this.request_tables_list_for_db.push(db_name);
+	}
+
+	// Action on success request
 	success_request(data) {
-		build_db_tree('.db_list', data);
+		var jsTreeData = JSON.stringify($('.db_tree').jstree(true).settings.core.data);
+		if (jsTreeData !== JSON.stringify(data)) {
+			$('.db_tree').jstree(true).settings.core.data = data;
+			$('.db_tree').jstree(true).refresh();
+		}
+	}
+
+	fail_request(data) {
+		console.log('TreeRequest fail: ' + data);
 	}
 }
 
@@ -73,7 +82,11 @@ class TableRequest extends RequestData {
 	}
 
 	success_request(data) {
-		console.log('TableRequest success: ' + data.headers + data.rows);
-		build_table_view('#myGrid', data)
+		update_table_view(data);
+		update_structure_view(data);
+	}
+
+	fail_request(data) {
+		console.log('TableRequest fail: ' + data);
 	}
 }

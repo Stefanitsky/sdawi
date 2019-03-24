@@ -72,6 +72,7 @@ def logout():
 @app.route('/get_db_info', methods=['POST'])
 def get_db_info():
     data_request = request.get_json()
+    # print(data_request)
     data_type = data_request.get('type', None)
     if data_type == 'db_tree':
         return build_db_tree(data_request)
@@ -83,11 +84,26 @@ def get_db_info():
 
 def build_db_tree(data_request):
     db_names = g.connection.get_db_list()
-    data = {
-        db_name: g.connection.get_tables_list(db_name)
-        if db_name in data_request['request_tables_list_for_db'] else []
-        for db_name in db_names
-    }
+    data = []
+    # TODO: short implementation
+    for db_name in db_names:
+        # database row
+        row = {}
+        row['id'] = db_name
+        row['parent'] = '#'
+        row['text'] = db_name
+        row['a_attr'] = {'type': 'db'}
+        data.append(row)
+        # tables row(s)
+        if db_name in data_request['request_tables_list_for_db']:
+            tables = g.connection.get_tables_list(db_name)
+            for table in tables:
+                row = {}
+                row['id'] = table[0]
+                row['parent'] = db_name
+                row['text'] = table[0]
+                row['a_attr'] = {'type': 'table'}
+                data.append(row)
     return jsonify(data)
 
 
@@ -95,8 +111,7 @@ def build_table_data(data_request):
     column_keys = ['id', 'name', 'field']
     db_name = data_request['db_name']
     table_name = data_request['table_name']
-    columns = g.connection.get_table_columns(table_name)
-    rows = g.connection.get_table_rows(table_name)
+    rows, columns = g.connection.get_table_data(db_name, table_name)
     data = {
         'columns': [{k: column_name
                      for k in column_keys} for column_name in columns],

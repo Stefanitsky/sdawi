@@ -4,17 +4,20 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Simple Database Access Web Interface</title>
-	<!-- jQuery -->
-	<script src="/static/node_modules/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="/static/node_modules/jquery/dist/jquery.js"></script>
+	<!-- Styles -->
+	<!-- Base -->
+	<link rel="stylesheet" type="text/css" href="/static/base.css">
+	<!-- Base end -->
 	<!-- Bootstrap -->
 	<link rel="stylesheet" type="text/css" href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css">
-	<script type="text/javascript" src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-	<!-- Base css -->
-	<link rel="stylesheet" type="text/css" href="/static/base.css">
+	<!-- Bootstrap end -->
 	<!-- SlickGrid -->
 	<link rel="stylesheet" href="/static/node_modules/slickgrid/slick.grid.css" type="text/css"/>
-  	<link rel="stylesheet" href="/static/node_modules/slickgrid/css/smoothness/jquery-ui-1.11.3.custom.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/node_modules/slickgrid/slick-default-theme.css" type="text/css"/>
+	<!-- SlickGrid end -->
+	<!-- jsTree -->
+	<link rel="stylesheet" href="/static/node_modules/jstree/dist/themes/default/style.min.css" />
+	<!-- jsTree end-->
 </head>
 <body>
 	<div class="container-fluid">
@@ -24,31 +27,61 @@
 					<div class="left_column">
 						<a href="/logout">Logout</a>
 						<div class="db_tree">
-							<ul class="db_list"></ul>
+						</div>
+						<div class="db_tree2">
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-8 db_info">
-					<div id="myGrid" style="width:600px;height:500px;"></div>
+				<div class="col-sm-8">
+					<div id="tabs_block">
+						<ul class="tabs">
+							<li><a href="#table_view">Table</a></li>
+							<li><a href="#structure_view">Structure</a></li>
+						</ul>
+						<div id="table_view"></div>
+						<div id="structure_view"></div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<!-- jQuery -->
+<script type="text/javascript" src="/static/node_modules/jquery/dist/jquery.min.js">
+</script>
+<script type="text/javascript" src="/static/node_modules/jquery-ui-dist/jquery-ui.min.js">
+</script>
+<!-- jQuery end -->
+<!-- Bootstrap JS -->
+<script type="text/javascript" src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js">
+</script>
+<!-- Bootstrap JS end -->
 <!-- SlickGrid -->
-<script src="/static/node_modules/slickgrid/lib/jquery-1.11.2.min.js"></script>
-<script src="/static/node_modules/slickgrid/lib/jquery.event.drag-2.3.0.js"></script>
-<script type="text/javascript" src="/static/node_modules/slickgrid/slick.core.js"></script>
-<script type="text/javascript" src="/static/node_modules/slickgrid/slick.grid.js"></script>
+</script>
+<script type="text/javascript" src="/static/node_modules/slickgrid/lib/jquery.event.drag-2.3.0.js">
+</script>
+<script type="text/javascript" src="/static/node_modules/slickgrid/slick.core.js">
+</script>
+<script type="text/javascript" src="/static/node_modules/slickgrid/slick.grid.js">
+</script>
+<!-- SlickGrid end -->
 <!-- Table view -->
-<script type="text/javascript" src="/static/table_view/table_view.js"></script>
+<script type="text/javascript" src="/static/browser/table_view.js">
+</script>
+<!-- Table view end -->
+<!-- Structure view  -->
+<script type="text/javascript" src="/static/browser/structure_view.js">
+</script>
+<!-- Structure view end -->
 <!-- Data request -->
-<script type="text/javascript" src="/static/data_request/data_request.js"></script>
+<script type="text/javascript" src="/static/data_request/data_request.js">
+</script>
+<!-- Data request end -->
 <!-- jsTree -->
-<script type="text/javascript" src="/static/tree/tree.js"></script>
-<link rel="stylesheet" href="/static/node_modules/jstree/dist/themes/default/style.min.css" />
 <script src="/static/node_modules/jstree/dist/jstree.min.js"></script>
-<!-- Main JS file -->
+<!-- jsTree end -->
+<!-- Main initializator -->
 <script type="text/javascript" src="/static/sdawi.js"></script>
+<!-- Main initializator end -->
 </body>
 </html>
