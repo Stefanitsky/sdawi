@@ -4,12 +4,104 @@
 		"selected_items":
 		[
 			[
+				"bo",
+				"border-bottom\tproperty"
+			],
+			[
+				"pa",
+				"padding-top\tproperty"
+			],
+			[
+				"mar",
+				"margin-top\tproperty"
+			],
+			[
+				"ma",
+				"margin-top\tproperty"
+			],
+			[
+				"jqu",
+				"jquery-ui-dist"
+			],
+			[
+				"jq",
+				"jquery"
+			],
+			[
+				"li",
+				"li\tTag"
+			],
+			[
+				"get_ta",
+				"get_table_rows\tfunction"
+			],
+			[
+				"data",
+				"data_request\tparam"
+			],
+			[
+				"jso",
+				"jsonify\tstatement"
+			],
+			[
 				"json",
-				"get_json\tFlask"
+				"jsonify\tstatement"
+			],
+			[
+				"Not",
+				"NotADirectoryError\tclass"
+			],
+			[
+				"con",
+				"connection\tstatement"
+			],
+			[
+				"j",
+				"jsonify\tfunction"
+			],
+			[
+				"succe",
+				"success_request"
+			],
+			[
+				"if",
+				"ife\tif … else"
+			],
+			[
+				"requ",
+				"request"
+			],
+			[
+				"dat",
+				"data\t.data()"
+			],
+			[
+				"class",
+				"classList\t: DOMTokenList Element"
 			],
 			[
 				"tree",
-				"tree_request_JSON"
+				"tree_get_tables_for_db"
+			],
+			[
+				"db_ta",
+				"db_table_name"
+			],
+			[
+				"db_conn",
+				"db_connection\tparam"
+			],
+			[
+				"db_na",
+				"db_name\tstatement"
+			],
+			[
+				"db_nam",
+				"db_names_test\tstatement"
+			],
+			[
+				"db_",
+				"db_html_tree_block"
 			],
 			[
 				"appen",
@@ -32,10 +124,6 @@
 				"html_to_append"
 			],
 			[
-				"db_nam",
-				"db_name_object"
-			],
-			[
 				"app",
 				"append"
 			],
@@ -46,10 +134,6 @@
 			[
 				"cre",
 				"createTextNode"
-			],
-			[
-				"data",
-				"data"
 			],
 			[
 				"sho",
@@ -94,18 +178,6 @@
 			[
 				"u",
 				"url\tDjango template url"
-			],
-			[
-				"pa",
-				"padding-top\tproperty"
-			],
-			[
-				"mar",
-				"margin-right\tproperty"
-			],
-			[
-				"li",
-				"link\tTag"
 			],
 			[
 				"h",
@@ -356,38 +428,18 @@
 	"buffers":
 	[
 		{
-			"file": "sdawi.py",
-			"settings":
-			{
-				"buffer_size": 2763,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "static/js/tree.js",
-			"settings":
-			{
-				"buffer_size": 540,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "static/js/sdawi.js",
-			"settings":
-			{
-				"buffer_size": 339,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "templates/sdawi.html",
 			"settings":
 			{
-				"buffer_size": 1020,
-				"encoding": "UTF-8",
+				"buffer_size": 2807,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "static/sdawi.js",
+			"settings":
+			{
+				"buffer_size": 1097,
 				"line_ending": "Unix"
 			}
 		}
@@ -403,6 +455,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"insta\t",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
 			[
 				"insta",
 				"Package Control: Install Package"
@@ -441,10 +501,6 @@
 			],
 			[
 				"inst",
-				"Package Control: Install Package"
-			],
-			[
-				"instal",
 				"Package Control: Install Package"
 			],
 			[
@@ -494,10 +550,6 @@
 			[
 				"edit theme",
 				"PackageDev: Edit Current Theme"
-			],
-			[
-				"insta\t",
-				"Package Control: Install Package"
 			],
 			[
 				"pack",
@@ -571,19 +623,48 @@
 	[
 		"/home/stefanitsky/projects/sdawi",
 		"/home/stefanitsky/projects/sdawi/static",
-		"/home/stefanitsky/projects/sdawi/static/css",
-		"/home/stefanitsky/projects/sdawi/static/js",
 		"/home/stefanitsky/projects/sdawi/templates"
 	],
 	"file_history":
 	[
+		"/home/stefanitsky/projects/sdawi/templates/sdawi.html",
+		"/home/stefanitsky/projects/sdawi/static/base.css",
+		"/home/stefanitsky/projects/sdawi/static/sdawi.js",
+		"/home/stefanitsky/projects/sdawi/static/browser/table_view.js",
+		"/home/stefanitsky/projects/sdawi/static/browser/structure_view.js",
+		"/home/stefanitsky/projects/sdawi/static/node_modules/jquery-ui-dist/jquery-ui.css",
+		"/home/stefanitsky/projects/sdawi/static/node_modules/jquery-ui-dist/jquery-ui.theme.css",
+		"/home/stefanitsky/projects/sdawi/static/node_modules/jquery-ui-dist/jquery-ui.min.js",
+		"/home/stefanitsky/projects/sdawi/static/node_modules/jquery-ui-dist/jquery-ui.js",
+		"/tmp/ark-VMfEfI/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css",
+		"/home/stefanitsky/projects/sdawi/static/node_modules/jquery-ui/demos/tabs/default.html",
+		"/home/stefanitsky/projects/sdawi/static/node_modules/tabslet/demo/index.html",
+		"/home/stefanitsky/projects/sdawi/static/node_modules/tabslet/package.json",
+		"/home/stefanitsky/projects/sdawi/static/node_modules/tabslet/tabslet.jquery.json",
+		"/home/stefanitsky/projects/sdawi/static/data_request/data_request.js",
+		"/home/stefanitsky/projects/sdawi/static/browser/tabs.js",
+		"/home/stefanitsky/projects/sdawi/static/data_view/table_view.js",
+		"/home/stefanitsky/projects/sdawi/static/data_view/structure_view.js",
+		"/home/stefanitsky/projects/sdawi/static/table_view/table_view.js",
+		"/home/stefanitsky/projects/sdawi/dbcw/db_connection_wrapper.py",
+		"/home/stefanitsky/projects/sdawi/sdawi.py",
+		"/home/stefanitsky/projects/sdawi/static/tree/tree.js",
+		"/home/stefanitsky/projects/sdawi/static/js/data_request/data_request.js",
+		"/home/stefanitsky/projects/sdawi/static/js/sdawi.js",
+		"/home/stefanitsky/projects/sdawi/static/package.json",
+		"/home/stefanitsky/projects/sdawi/static/js/table_view/table_view.js",
+		"/home/stefanitsky/projects/sdawi/static/js/slickgrid/slick.remotemodel-yahoo.js",
+		"/home/stefanitsky/projects/sdawi/static/js/tree/tree.js",
+		"/home/stefanitsky/projects/sdawi/static/js/request/data_request.js",
+		"/home/stefanitsky/projects/sdawi/jdh/json_data_handler.py",
+		"/home/stefanitsky/projects/sdawi/dbcw/__init__.py",
+		"/home/stefanitsky/projects/sdawi/dbcw.py",
+		"/home/stefanitsky/projects/sdawi/static/js/tree.js",
+		"/home/stefanitsky/projects/SlickGrid/package.json",
 		"/home/stefanitsky/projects/sdawi/.gitignore",
 		"/home/stefanitsky/projects/sdawi/static/css/base.css",
-		"/home/stefanitsky/projects/sdawi/static/js/tree.js",
-		"/home/stefanitsky/projects/sdawi/static/js/sdawi.js",
 		"/home/stefanitsky/projects/sdawi/templates/login.html",
 		"/home/stefanitsky/projects/sdawi/config.py",
-		"/home/stefanitsky/projects/sdawi/templates/sdawi.html",
 		"/home/stefanitsky/projects/sdawi/Pipfile",
 		"/home/stefanitsky/projects/sdawi/login_form.py",
 		"/home/stefanitsky/projects/sdawi/templates/_util.html",
@@ -673,13 +754,7 @@
 		"/home/stefanitsky/projects/SDAWI/app/Http/Controllers/PagesController.php",
 		"/home/stefanitsky/projects/SDAWI/routes/web.php",
 		"/home/stefanitsky/projects/SDAWI/resources/views/sdawi.blade.php",
-		"/home/stefanitsky/projects/SDAWI/database/migrations/2014_10_12_000000_create_users_table.php",
-		"/home/stefanitsky/projects/SDAWI/resources/views/layout.blade.php",
-		"/home/stefanitsky/projects/SDAWI/resources/views/welcome.blade.php",
-		"/home/stefanitsky/projects/SDAWI/.env",
-		"/home/stefanitsky/projects/SDAWI/composer.json",
-		"/home/stefanitsky/projects/SDAWI/src/HelloWorld.php",
-		"/home/stefanitsky/projects/SDAWI/.gitignore"
+		"/home/stefanitsky/projects/SDAWI/database/migrations/2014_10_12_000000_create_users_table.php"
 	],
 	"find":
 	{
@@ -697,6 +772,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ui-tabs",
+			"#",
+			"ui-corner",
+			"tabs",
+			"ui-tab",
+			"theme",
+			"table_view",
+			"table_vi",
+			"data_view",
+			"jsonTree",
 			"PPT ",
 			"itali"
 		],
@@ -706,6 +791,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"structure_view",
+			"JSON_tree"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -716,179 +803,66 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "sdawi.py",
+					"file": "templates/sdawi.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2763,
+						"buffer_size": 2807,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1783,
-								1783
+								552,
+								552
 							]
 						],
 						"settings":
 						{
-							"SL.13.region_keys":
-							[
-								"SL.mypy.Highlights.|87e983e6a701f8e0247acb8bdb881665e55e8bf5c1d2c5e3799ebf50aab8ba75|region.redish markup.error.sublime_linter|2340",
-								"sublime_linter.protected_regions",
-								"SL.flake8.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
-								"SL.flake8.Highlights.|cf9315fa4ab7296e88daa47024e4a219c789ae150661fd3ed37dcdc939d6ed58|region.yellowish markup.warning.sublime_linter|2340",
-								"SL.mypy.Gutter.|region.redish markup.error.sublime_linter|dot"
-							],
-							"SL.87.region_keys":
-							[
-								"sublime_linter.protected_regions"
-							],
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"default_extension": "py",
-							"syntax": "Packages/Python 3/Python3.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 867.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "static/js/tree.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 540,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"SL.14.region_keys":
-							[
-							],
-							"SL.22.region_keys":
-							[
-							],
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "static/js/sdawi.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 339,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								339,
-								339
-							]
-						],
-						"settings":
-						{
-							"SL.15.region_keys":
-							[
-							],
-							"SL.21.region_keys":
-							[
-							],
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 306.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "templates/sdawi.html",
+					"buffer": 1,
+					"file": "static/sdawi.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1020,
+						"buffer_size": 1097,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								695,
-								695
+								929,
+								929
 							]
 						],
 						"settings":
 						{
-							"SL.14.region_keys":
-							[
-							],
-							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -979,7 +953,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 209.0,
+	"side_bar_width": 323.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
