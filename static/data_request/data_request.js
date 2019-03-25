@@ -82,8 +82,7 @@ class TableRequest extends RequestData {
 	}
 
 	success_request(data) {
-		update_table_view(data);
-		update_structure_view(data);
+		table_view.update_data(data.columns, data.rows);
 	}
 
 	fail_request(data) {

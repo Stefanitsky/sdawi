@@ -8,6 +8,9 @@
 	<!-- Base -->
 	<link rel="stylesheet" type="text/css" href="/static/base.css">
 	<!-- Base end -->
+	<!-- jQuery UI (SlickGrid) -->
+  	<link rel="stylesheet" href="/static/node_modules/slickgrid/css/smoothness/jquery-ui-1.11.3.custom.css" type="text/css"/>
+	<!-- jQuery end -->
 	<!-- Bootstrap -->
 	<link rel="stylesheet" type="text/css" href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<!-- Bootstrap end -->
@@ -33,13 +36,19 @@
 					</div>
 				</div>
 				<div class="col-sm-8">
-					<div id="tabs_block">
-						<ul class="tabs">
-							<li><a href="#table_view">Table</a></li>
-							<li><a href="#structure_view">Structure</a></li>
+					<div id="tabs">
+						<ul>
+							<!-- Tabs -->
+							<li><a href="#welcome">Welcome</a></li>
+							<li><a href="#structure">Structure</a></li>
+							<li><a href="#table_data">Data</a></li>
+							<li><a href="#sql">SQL</a></li>
 						</ul>
-						<div id="table_view"></div>
-						<div id="structure_view"></div>
+						<!-- Tabs content -->
+						<div id="welcome">Welcome tab content</div>
+						<div id="table_data"></div>
+						<div id="structure">Structure tab content</div>
+						<div id="sql">SQL tab content</div>
 					</div>
 				</div>
 			</div>
@@ -65,14 +74,6 @@
 <script type="text/javascript" src="/static/node_modules/slickgrid/slick.grid.js">
 </script>
 <!-- SlickGrid end -->
-<!-- Table view -->
-<script type="text/javascript" src="/static/browser/table_view.js">
-</script>
-<!-- Table view end -->
-<!-- Structure view  -->
-<script type="text/javascript" src="/static/browser/structure_view.js">
-</script>
-<!-- Structure view end -->
 <!-- Data request -->
 <script type="text/javascript" src="/static/data_request/data_request.js">
 </script>
@@ -80,8 +81,12 @@
 <!-- jsTree -->
 <script src="/static/node_modules/jstree/dist/jstree.min.js"></script>
 <!-- jsTree end -->
-<!-- Main initializator -->
+<!-- Main-->
+<script type="text/javascript" src="/static/browser/table_view.js">
+</script>
+<script type="text/javascript" src="/static/browser/tabs.js">
+</script>
 <script type="text/javascript" src="/static/sdawi.js"></script>
-<!-- Main initializator end -->
+<!-- Main end -->
 </body>
 </html>
