@@ -4,12 +4,8 @@
 		"selected_items":
 		[
 			[
-				"flas",
-				"flash"
-			],
-			[
-				"u",
-				"url\tDjango template url"
+				"bo",
+				"border-bottom\tproperty"
 			],
 			[
 				"pa",
@@ -17,11 +13,171 @@
 			],
 			[
 				"mar",
-				"margin-right\tproperty"
+				"margin-top\tproperty"
+			],
+			[
+				"ma",
+				"margin-top\tproperty"
+			],
+			[
+				"jqu",
+				"jquery-ui-dist"
+			],
+			[
+				"jq",
+				"jquery"
 			],
 			[
 				"li",
-				"link\tTag"
+				"li\tTag"
+			],
+			[
+				"get_ta",
+				"get_table_rows\tfunction"
+			],
+			[
+				"data",
+				"data_request\tparam"
+			],
+			[
+				"jso",
+				"jsonify\tstatement"
+			],
+			[
+				"json",
+				"jsonify\tstatement"
+			],
+			[
+				"Not",
+				"NotADirectoryError\tclass"
+			],
+			[
+				"con",
+				"connection\tstatement"
+			],
+			[
+				"j",
+				"jsonify\tfunction"
+			],
+			[
+				"succe",
+				"success_request"
+			],
+			[
+				"if",
+				"ife\tif … else"
+			],
+			[
+				"requ",
+				"request"
+			],
+			[
+				"dat",
+				"data\t.data()"
+			],
+			[
+				"class",
+				"classList\t: DOMTokenList Element"
+			],
+			[
+				"tree",
+				"tree_get_tables_for_db"
+			],
+			[
+				"db_ta",
+				"db_table_name"
+			],
+			[
+				"db_conn",
+				"db_connection\tparam"
+			],
+			[
+				"db_na",
+				"db_name\tstatement"
+			],
+			[
+				"db_nam",
+				"db_names_test\tstatement"
+			],
+			[
+				"db_",
+				"db_html_tree_block"
+			],
+			[
+				"appen",
+				"append"
+			],
+			[
+				"tre",
+				"tree_request"
+			],
+			[
+				"htm",
+				"html_to_append"
+			],
+			[
+				"ht",
+				"html_to_append"
+			],
+			[
+				"hm",
+				"html_to_append"
+			],
+			[
+				"app",
+				"append"
+			],
+			[
+				"ap",
+				"appendChild"
+			],
+			[
+				"cre",
+				"createTextNode"
+			],
+			[
+				"sho",
+				"show_db_list"
+			],
+			[
+				"append",
+				"appendChild"
+			],
+			[
+				"No",
+				"None\tkeyword"
+			],
+			[
+				"get",
+				"get_db_connect\tfunction"
+			],
+			[
+				"pos",
+				"posting"
+			],
+			[
+				"db",
+				"db_name\tparam"
+			],
+			[
+				"conn",
+				"connect\tstatement"
+			],
+			[
+				"redire",
+				"redirect_to_index\tstatement"
+			],
+			[
+				"cool",
+				"get_cookie_secure\tFlask"
+			],
+			[
+				"flas",
+				"flash"
+			],
+			[
+				"u",
+				"url\tDjango template url"
 			],
 			[
 				"h",
@@ -134,10 +290,6 @@
 			[
 				"prim",
 				"prime_numbers\tstatement"
-			],
-			[
-				"get",
-				"get_palindromes_in_range\tfunction"
 			],
 			[
 				"num",
@@ -264,10 +416,6 @@
 				"query"
 			],
 			[
-				"data",
-				"databases"
-			],
-			[
 				"pub",
 				"public"
 			],
@@ -280,20 +428,18 @@
 	"buffers":
 	[
 		{
-			"file": "sdawi.py",
+			"file": "templates/sdawi.html",
 			"settings":
 			{
-				"buffer_size": 309,
-				"encoding": "UTF-8",
+				"buffer_size": 2807,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "templates/login.html",
+			"file": "static/sdawi.js",
 			"settings":
 			{
-				"buffer_size": 1724,
-				"encoding": "UTF-8",
+				"buffer_size": 1097,
 				"line_ending": "Unix"
 			}
 		}
@@ -309,6 +455,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"insta\t",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
 			[
 				"insta",
 				"Package Control: Install Package"
@@ -347,10 +501,6 @@
 			],
 			[
 				"inst",
-				"Package Control: Install Package"
-			],
-			[
-				"instal",
 				"Package Control: Install Package"
 			],
 			[
@@ -400,10 +550,6 @@
 			[
 				"edit theme",
 				"PackageDev: Edit Current Theme"
-			],
-			[
-				"insta\t",
-				"Package Control: Install Package"
 			],
 			[
 				"pack",
@@ -477,13 +623,49 @@
 	[
 		"/home/stefanitsky/projects/sdawi",
 		"/home/stefanitsky/projects/sdawi/static",
-		"/home/stefanitsky/projects/sdawi/static/js",
 		"/home/stefanitsky/projects/sdawi/templates"
 	],
 	"file_history":
 	[
-		"/home/stefanitsky/projects/sdawi/Pipfile",
+		"/home/stefanitsky/projects/sdawi/templates/sdawi.html",
+		"/home/stefanitsky/projects/sdawi/static/base.css",
+		"/home/stefanitsky/projects/sdawi/static/sdawi.js",
+		"/home/stefanitsky/projects/sdawi/static/browser/table_view.js",
+		"/home/stefanitsky/projects/sdawi/static/browser/structure_view.js",
+		"/home/stefanitsky/projects/sdawi/static/node_modules/jquery-ui-dist/jquery-ui.css",
+		"/home/stefanitsky/projects/sdawi/static/node_modules/jquery-ui-dist/jquery-ui.theme.css",
+		"/home/stefanitsky/projects/sdawi/static/node_modules/jquery-ui-dist/jquery-ui.min.js",
+		"/home/stefanitsky/projects/sdawi/static/node_modules/jquery-ui-dist/jquery-ui.js",
+		"/tmp/ark-VMfEfI/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css",
+		"/home/stefanitsky/projects/sdawi/static/node_modules/jquery-ui/demos/tabs/default.html",
+		"/home/stefanitsky/projects/sdawi/static/node_modules/tabslet/demo/index.html",
+		"/home/stefanitsky/projects/sdawi/static/node_modules/tabslet/package.json",
+		"/home/stefanitsky/projects/sdawi/static/node_modules/tabslet/tabslet.jquery.json",
+		"/home/stefanitsky/projects/sdawi/static/data_request/data_request.js",
+		"/home/stefanitsky/projects/sdawi/static/browser/tabs.js",
+		"/home/stefanitsky/projects/sdawi/static/data_view/table_view.js",
+		"/home/stefanitsky/projects/sdawi/static/data_view/structure_view.js",
+		"/home/stefanitsky/projects/sdawi/static/table_view/table_view.js",
+		"/home/stefanitsky/projects/sdawi/dbcw/db_connection_wrapper.py",
+		"/home/stefanitsky/projects/sdawi/sdawi.py",
+		"/home/stefanitsky/projects/sdawi/static/tree/tree.js",
+		"/home/stefanitsky/projects/sdawi/static/js/data_request/data_request.js",
+		"/home/stefanitsky/projects/sdawi/static/js/sdawi.js",
+		"/home/stefanitsky/projects/sdawi/static/package.json",
+		"/home/stefanitsky/projects/sdawi/static/js/table_view/table_view.js",
+		"/home/stefanitsky/projects/sdawi/static/js/slickgrid/slick.remotemodel-yahoo.js",
+		"/home/stefanitsky/projects/sdawi/static/js/tree/tree.js",
+		"/home/stefanitsky/projects/sdawi/static/js/request/data_request.js",
+		"/home/stefanitsky/projects/sdawi/jdh/json_data_handler.py",
+		"/home/stefanitsky/projects/sdawi/dbcw/__init__.py",
+		"/home/stefanitsky/projects/sdawi/dbcw.py",
+		"/home/stefanitsky/projects/sdawi/static/js/tree.js",
+		"/home/stefanitsky/projects/SlickGrid/package.json",
+		"/home/stefanitsky/projects/sdawi/.gitignore",
+		"/home/stefanitsky/projects/sdawi/static/css/base.css",
 		"/home/stefanitsky/projects/sdawi/templates/login.html",
+		"/home/stefanitsky/projects/sdawi/config.py",
+		"/home/stefanitsky/projects/sdawi/Pipfile",
 		"/home/stefanitsky/projects/sdawi/login_form.py",
 		"/home/stefanitsky/projects/sdawi/templates/_util.html",
 		"/home/stefanitsky/projects/sdawi/templates/index.html",
@@ -572,13 +754,7 @@
 		"/home/stefanitsky/projects/SDAWI/app/Http/Controllers/PagesController.php",
 		"/home/stefanitsky/projects/SDAWI/routes/web.php",
 		"/home/stefanitsky/projects/SDAWI/resources/views/sdawi.blade.php",
-		"/home/stefanitsky/projects/SDAWI/database/migrations/2014_10_12_000000_create_users_table.php",
-		"/home/stefanitsky/projects/SDAWI/resources/views/layout.blade.php",
-		"/home/stefanitsky/projects/SDAWI/resources/views/welcome.blade.php",
-		"/home/stefanitsky/projects/SDAWI/.env",
-		"/home/stefanitsky/projects/SDAWI/composer.json",
-		"/home/stefanitsky/projects/SDAWI/src/HelloWorld.php",
-		"/home/stefanitsky/projects/SDAWI/.gitignore"
+		"/home/stefanitsky/projects/SDAWI/database/migrations/2014_10_12_000000_create_users_table.php"
 	],
 	"find":
 	{
@@ -596,6 +772,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ui-tabs",
+			"#",
+			"ui-corner",
+			"tabs",
+			"ui-tab",
+			"theme",
+			"table_view",
+			"table_vi",
+			"data_view",
+			"jsonTree",
 			"PPT ",
 			"itali"
 		],
@@ -605,6 +791,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"structure_view",
+			"JSON_tree"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -615,92 +803,66 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "sdawi.py",
+					"file": "templates/sdawi.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 309,
+						"buffer_size": 2807,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								309,
-								309
+								552,
+								552
 							]
 						],
 						"settings":
 						{
-							"SL.13.region_keys":
-							[
-								"sublime_linter.protected_regions"
-							],
-							"SL.87.region_keys":
-							[
-								"sublime_linter.protected_regions"
-							],
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"default_extension": "py",
-							"syntax": "Packages/Python 3/Python3.tmLanguage"
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 306.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "templates/login.html",
+					"file": "static/sdawi.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1724,
+						"buffer_size": 1097,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1195,
-								1195
+								929,
+								929
 							]
 						],
 						"settings":
 						{
-							"SL.15.region_keys":
-							[
-							],
-							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -791,7 +953,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 216.0,
+	"side_bar_width": 323.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
