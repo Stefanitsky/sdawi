@@ -101,9 +101,14 @@ class RawSQLRequest extends RequestData {
 
 	success_request(data) {
 		if ('error' in data) {
-			console.log('OOPSIEE' + data.error);
+			var alert = '<div class="alert alert-danger" role="alert">';
+			alert += data.error + '</div>';
+			$('#sql_query_result').html(alert);
 		} else {
-			console.log('RawSQLRequest success: ' + data);
+			//TODO: show table
+			var alert = '<div class="alert alert-success" role="alert">';
+			alert += data + '</div>';
+			$('#sql_query_result').html(alert);
 		}
 	}
 
