@@ -1,6 +1,3 @@
-import sys
-
-
 class DBConnectionWrapper:
     '''
     Database connection wrapper.
@@ -9,6 +6,7 @@ class DBConnectionWrapper:
         - PostgreSQL
     '''
     settings = {}  # type: dict
+    engine_module = None
 
     def _check_settings(self):
         if self.engine == 'postgres':
@@ -19,6 +17,7 @@ class DBConnectionWrapper:
         if self.engine == 'postgres':
             try:
                 import psycopg2
+                self.engine_module = psycopg2
             except ImportError:
                 raise ValueError('psycopg2 module not found')
             try:
@@ -49,14 +48,20 @@ class DBConnectionWrapper:
 
     def execute_query(self, query):
         if not self.connection:
-            return 'No database connection'
-        self.cursor.execute(query)
-        return self.fetch()
+                return {'error': 'No database connection'}
+        if self.engine == 'postgres':
+            try:
+                self.cursor.execute(query)
+                return self.fetch()
+            except self.engine_module.Error as e:
+                return {'error': e.pgerror}
 
     def get_db_list(self):
         if self.engine == 'postgres':
             result = self.execute_query(
                 "SELECT datname FROM pg_database WHERE datistemplate = 'f';")
+            if 'error' in result:
+                return result
             return [db_name[0] for db_name in result]
 
     def get_tables_list(self, db_name):
@@ -79,10 +84,12 @@ class DBConnectionWrapper:
     def get_table_data(self, db_name, table_name):
         if self.engine == 'postgres':
             if db_name == self.settings['dbname']:
-                rows = self.execute_query(
+                result = self.execute_query(
                     'SELECT * FROM {};'.format(table_name))
+                if 'error' in result:
+                    return result, None
                 columns = [name[0] for name in self.cursor.description]
-                return rows, columns
+                return result, columns
             else:
                 settings_temp = self.settings
                 settings_temp['dbname'] = db_name

@@ -2,9 +2,8 @@
 SDAWI - Simple Database Access Web Interface.
 '''
 
-
-from flask import Flask, render_template, request, \
-redirect, session, url_for, jsonify, g
+from flask import Flask, render_template, request
+from flask import redirect, session, url_for, jsonify, g
 import config
 from dbcw import DBConnectionWrapper
 
@@ -42,8 +41,8 @@ def index():
 def login():
     '''
     Login route.
-    Checks the entered data from the authorization form and redirects to the main
-    route.
+    Checks the entered data from the authorization form
+    and redirects to the main route.
     '''
     if request.method == 'POST':
         db_user = request.form['db_user']
@@ -71,51 +70,67 @@ def logout():
 
 @app.route('/get_db_info', methods=['POST'])
 def get_db_info():
-    data_request = request.get_json()
-    # print(data_request)
+    result = get_response(request.get_json())
+    print(result.get_json())
+    return result
+
+
+def get_response(data_request):
     data_type = data_request.get('type', None)
     if data_type == 'db_tree':
-        return build_db_tree(data_request)
+        result = g.connection.get_db_list()
+        if 'error' in result:
+            return result
+        return build_db_tree(result,
+                             data_request['request_tables_list_for_db'])
     elif data_type == 'table_data':
-        return build_table_data(data_request)
+        db_name = data_request['db_name']
+        table_name = data_request['table_name']
+        rows, columns = g.connection.get_table_data(db_name, table_name)
+        if 'error' in rows:
+            return rows
+        return build_table_data(rows, columns)
+    elif data_type == 'raw_sql':
+        return jsonify(g.connection.execute_query(data_request['query']))
     else:
-        return 'Error'
+        return {'error': 'Unknown error'}
 
 
-def build_db_tree(data_request):
-    db_names = g.connection.get_db_list()
+def build_db_tree(db_names, request_tables_list_for_db):
     data = []
-    # TODO: short implementation
     for db_name in db_names:
         # database row
-        row = {}
-        row['id'] = db_name
-        row['parent'] = '#'
-        row['text'] = db_name
-        row['a_attr'] = {'type': 'db'}
+        row = {
+            'id': db_name,
+            'parent': '#',
+            'text': db_name,
+            'a_attr': {
+                'type': 'db'
+            }
+        }
         data.append(row)
         # tables row(s)
-        if db_name in data_request['request_tables_list_for_db']:
-            tables = g.connection.get_tables_list(db_name)
-            for table in tables:
-                row = {}
-                row['id'] = table[0]
-                row['parent'] = db_name
-                row['text'] = table[0]
-                row['a_attr'] = {'type': 'table'}
+        if db_name in request_tables_list_for_db:
+            for table in g.connection.get_tables_list(db_name):
+                row = {
+                    'id': table[0],
+                    'parent': db_name,
+                    'text': table[0],
+                    'a_attr': {
+                        'type': 'table'
+                    }
+                }
                 data.append(row)
     return jsonify(data)
 
 
-def build_table_data(data_request):
+def build_table_data(rows, columns):
     column_keys = ['id', 'name', 'field']
-    db_name = data_request['db_name']
-    table_name = data_request['table_name']
-    rows, columns = g.connection.get_table_data(db_name, table_name)
     data = {
         'columns': [{k: column_name
                      for k in column_keys} for column_name in columns],
-        'rows': [{k: v for (k, v) in zip(columns, row)} for row in rows]
+        'rows': [{k: v
+                  for (k, v) in zip(columns, row)} for row in rows]
     }
     return jsonify(data)
 

@@ -89,3 +89,25 @@ class TableRequest extends RequestData {
 		console.log('TableRequest fail: ' + data);
 	}
 }
+
+class RawSQLRequest extends RequestData {
+	constructor() {
+		super('raw_sql');
+	}
+
+	update_query(query) {
+		this.request_data['query'] = query;
+	}
+
+	success_request(data) {
+		if ('error' in data) {
+			console.log('OOPSIEE' + data.error);
+		} else {
+			console.log('RawSQLRequest success: ' + data);
+		}
+	}
+
+	fail_request(data) {
+		console.log('RawSQLRequest fail: ' + data);
+	}
+}
