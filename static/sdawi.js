@@ -1,7 +1,17 @@
 var tree_requst = new TreeRequest();
+var table_request = new TableRequest();
+var raw_sql_request = new RawSQLRequest();
 var table_view = new TableView('table_data', [], []);
+var sql_input_area = CodeMirror(document.getElementById('sql_input_area'), {
+    value: "SELECT * FROM pg_database;",
+    mode:  "sql",
+    lineNumbers: true,
+    autoRefresh: true,
+    lineWrapping: true
+});
 
 $(document).ready(function() {
+    // Init jsTree
     $('.db_tree').jstree(
         {'core' : {
             'multiple': false,
@@ -10,9 +20,12 @@ $(document).ready(function() {
         },
         'plugins' : ['contextmenu']
     });
+    // Init tabs
     $('div#tabs').tabs();
     main_tabs_show();
+    // Request tree data from the server
     tree_requst.request();
+    // Set interval to update every 1 sec
 	setInterval(function() {
 	 		tree_requst.request();
 	 	}, 
@@ -28,7 +41,6 @@ $('.db_tree').on('activate_node.jstree', function (e, data) {
         database_tabs_show();
     }
     else if (data.node.a_attr.type == 'table') {
-        var table_request = new TableRequest();
         var db_name = data.node.parent;
         var table_name = data.node.id;
         table_request.update_request_data(db_name, table_name);
@@ -48,6 +60,19 @@ $(window).on("resize", function() {
     table_view.grid.resizeCanvas();
 });
 
+// TODO: separate update for each tab
 $('div#tabs').on('tabsactivate', function(event, ui) {
     table_view.grid.resizeCanvas();
+    //sql_input_area.refresh();
+});
+
+$('#submit_query').click(function(event) {
+    // GET INPUT
+    query = sql_input_area.getDoc().getValue(' ');
+    // BUILD JSON
+    raw_sql_request.update_query(query);
+    // SEND JSON TO THE SERVER
+    raw_sql_request.request();
+    // TODO: new DataRequest class (RawSqlDataRequest)?
+    
 });

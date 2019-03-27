@@ -89,3 +89,30 @@ class TableRequest extends RequestData {
 		console.log('TableRequest fail: ' + data);
 	}
 }
+
+class RawSQLRequest extends RequestData {
+	constructor() {
+		super('raw_sql');
+	}
+
+	update_query(query) {
+		this.request_data['query'] = query;
+	}
+
+	success_request(data) {
+		if ('error' in data) {
+			var alert = '<div class="alert alert-danger" role="alert">';
+			alert += data.error + '</div>';
+			$('#sql_query_result').html(alert);
+		} else {
+			//TODO: show table
+			var alert = '<div class="alert alert-success" role="alert">';
+			alert += data + '</div>';
+			$('#sql_query_result').html(alert);
+		}
+	}
+
+	fail_request(data) {
+		console.log('RawSQLRequest fail: ' + data);
+	}
+}
