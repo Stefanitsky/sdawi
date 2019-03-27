@@ -23,6 +23,10 @@
 	<!-- CodeMirror -->
 	<link rel="stylesheet" href="/static/node_modules/codemirror/lib/codemirror.css">
 	<!-- CodeMirror end -->
+	<!-- Vanilla JS Tabs -->
+	<link rel="stylesheet" href="/static/node_modules/vanilla-js-tabs/dist/vanilla-js-tabs.css">
+	<!-- Vanilla JS Tabs end -->
+	<!-- Styles end -->
 </head>
 <body>
 	<div class="container-fluid">
@@ -31,22 +35,40 @@
 				<div class="col-sm-4">
 					<div class="left_column">
 						<a href="/logout">Logout</a>
-						<div class="db_tree">
-						</div>
-						<div class="db_tree2">
-						</div>
+						<div class="db_tree"></div>
 					</div>
 				</div>
 				<div class="col-sm-8">
+					<div class="js-tabs" id="tabs">
+					    <ul class="js-tabs__header">
+					        <li><a href="#" class="js-tabs__title">Welcome</a></li>
+					        <li><a href="#" class="js-tabs__title">Structure</a></li>
+					        <li><a href="#" class="js-tabs__title">Data</a></li>
+					        <li><a href="#" class="js-tabs__title">SQL</a></li>
+					    </ul>
+					    <div class="js-tabs__content">
+					        <h1>Welcome tab content</h1>
+					    </div>
+					    <div class="js-tabs__content">
+					        <h1>Structure tab content</h1>
+					    </div>
+					    <div class="js-tabs__content">
+					    	<div id="table_data"></div>
+					    </div>
+					    <div class="js-tabs__content">
+					        <div id="sql_input_area"></div>
+							<button type="button" id="submit_query" class="btn btn-primary btn-sm">Submit query</button>
+							<div id="raw_sql_result"></div>
+					    </div>
+					</div>
+					<!--
 					<div id="tabs">
 						<ul>
-							<!-- Tabs -->
 							<li><a href="#welcome">Welcome</a></li>
 							<li><a href="#structure">Structure</a></li>
 							<li><a href="#data">Data</a></li>
 							<li><a href="#sql">SQL</a></li>
 						</ul>
-						<!-- Tabs content -->
 						<div id="welcome">Welcome tab content</div>
 						<div id="data">
 							<div id="table_data"></div>
@@ -57,42 +79,37 @@
 							<button type="button" id="submit_query" class="btn btn-primary btn-sm">Submit query</button>
 							<div id="raw_sql_result"></div>
 						</div>
-					</div>
+						-->
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 <!-- jQuery -->
-<script type="text/javascript" src="/static/node_modules/jquery/dist/jquery.min.js">
-</script>
-<script type="text/javascript" src="/static/node_modules/jquery-ui-dist/jquery-ui.min.js">
-</script>
+<script type="text/javascript" src="/static/node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/static/node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
 <!-- jQuery end -->
 <!-- Bootstrap JS -->
-<script type="text/javascript" src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js">
-</script>
+<script type="text/javascript" src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Bootstrap JS end -->
 <!-- Handsontable -->
-<script type="text/javascript" src="static/node_modules/handsontable/dist/handsontable.full.min.js">
-</script>
+<script type="text/javascript" src="static/node_modules/handsontable/dist/handsontable.full.min.js"></script>
 <!-- Handsontable end -->
 <!-- CodeMirror -->
 <script type="text/javascript" src="/static/node_modules/codemirror/lib/codemirror.js"></script>
 <script type="text/javascript" src="/static/node_modules/codemirror/mode/sql/sql.js"></script>
 <!-- CodeMirror end -->
 <!-- Data request -->
-<script type="text/javascript" src="/static/data_request/data_request.js">
-</script>
+<script type="text/javascript" src="/static/data_request/data_request.js"></script>
 <!-- Data request end -->
 <!-- jsTree -->
-<script src="/static/node_modules/jstree/dist/jstree.min.js"></script>
+<script type="text/javascript" src="/static/node_modules/jstree/dist/jstree.min.js"></script>
 <!-- jsTree end -->
+<!-- Vanilla JS Tabs -->
+<script type="text/javascript" src="/static/node_modules/vanilla-js-tabs/dist/vanilla-js-tabs.min.js"></script>
+<!-- Vanilla JS Tabs end -->
 <!-- Main-->
-<script type="text/javascript" src="/static/browser/table_view.js">
-</script>
-<script type="text/javascript" src="/static/browser/tabs.js">
-</script>
+<script type="text/javascript" src="/static/browser/table_view.js"></script>
+<script type="text/javascript" src="/static/browser/tabs.js"></script>
 <script type="text/javascript" src="/static/sdawi.js"></script>
 <!-- Main end -->
 </body>

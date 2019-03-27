@@ -1,6 +1,7 @@
 var tree_requst = new TreeRequest();
 var table_request = new TableRequest();
 var raw_sql_request = new RawSQLRequest();
+var tabs = null;
 
 var sql_input_area = CodeMirror(document.getElementById('sql_input_area'), {
     value: "SELECT * FROM pg_database;",
@@ -46,8 +47,12 @@ $(document).ready(function() {
         'plugins' : ['contextmenu']
     });
     // Init tabs
-    $('div#tabs').tabs();
-    main_tabs_show();
+    var tabs = new Tabs({
+        elem: "tabs",
+        open: 0
+    });
+    // $('div#tabs').tabs();
+    // main_tabs_show();
     // Request tree data from the server
     tree_requst.request();
     // Set interval to update every 1 sec
