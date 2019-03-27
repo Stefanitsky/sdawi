@@ -11,6 +11,6 @@
     "jquery": "^3.3.1",
     "jquery-ui-dist": "^1.12.1",
     "jstree": "^3.3.7",
-    "slickgrid": "^2.4.4"
+    "slickgrid": "https://github.com/Stefanitsky/SlickGrid.git"
   }
 }
