@@ -105,10 +105,8 @@ class RawSQLRequest extends RequestData {
 			alert += data.error + '</div>';
 			$('#sql_query_result').html(alert);
 		} else {
-			//TODO: show table
-			var alert = '<div class="alert alert-success" role="alert">';
-			alert += data + '</div>';
-			$('#sql_query_result').html(alert);
+			sql_result_view.update_data(data.columns, data.rows);
+			console.log('yay');
 		}
 	}
 

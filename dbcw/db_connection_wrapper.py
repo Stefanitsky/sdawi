@@ -32,7 +32,6 @@ class DBConnectionWrapper:
 
     def __init__(self, engine='postgres', **kwargs):
         self.settings.update(**kwargs)
-        print(self.settings)
         self.engine = self.settings.pop('engine', engine)
         self._check_settings()
         self.connection = None
