@@ -129,7 +129,6 @@ def build_table_data(columns, rows):
         'columns': [{'data': column_name} for column_name in columns],
         'rows': [{k: v for (k, v) in zip(columns, row)} for row in rows]
     }
-    print(data)
     return jsonify(data)
 
 

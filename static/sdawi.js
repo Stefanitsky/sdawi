@@ -13,12 +13,25 @@ var sql_input_area = CodeMirror(document.getElementById('sql_input_area'), {
 var table_data = new Handsontable(document.getElementById('table_data'), {
     rowHeaders: true,
     colHeaders: true,
+    manualRowResize: true,
+    manualColumnResize: true,
+    contextMenu: true,
+    filters: true,
+    dropdownMenu: true,
+    stretchH: 'all',
+    preventOverflow: 'horizontal',
     licenseKey: 'non-commercial-and-evaluation'
 });
 
 var raw_sql_result = new Handsontable(document.getElementById('raw_sql_result'), {
     rowHeaders: true,
     colHeaders: true,
+    manualRowResize: true,
+    manualColumnResize: true,
+    filters: true,
+    dropdownMenu: true,
+    stretchH: 'all',
+    preventOverflow: 'horizontal',
     licenseKey: 'non-commercial-and-evaluation'
 });
 
