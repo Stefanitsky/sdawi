@@ -2,6 +2,7 @@ var tree_requst = new TreeRequest();
 var table_request = new TableRequest();
 var raw_sql_request = new RawSQLRequest();
 var table_view = new TableView('table_data', [], []);
+var sql_result_view = new TableView('sql_query_result', [], []);
 var sql_input_area = CodeMirror(document.getElementById('sql_input_area'), {
     value: "SELECT * FROM pg_database;",
     mode:  "sql",
@@ -58,21 +59,16 @@ $('.db_tree').on('select_node.jstree', function(e, data) {
 
 $(window).on("resize", function() {
     table_view.grid.resizeCanvas();
+    sql_result_view.grid.resizeCanvas();
 });
 
-// TODO: separate update for each tab
 $('div#tabs').on('tabsactivate', function(event, ui) {
     table_view.grid.resizeCanvas();
-    //sql_input_area.refresh();
+    sql_result_view.grid.resizeCanvas();
 });
 
 $('#submit_query').click(function(event) {
-    // GET INPUT
-    query = sql_input_area.getDoc().getValue(' ');
-    // BUILD JSON
+    query = sql_input_area.getDoc().getValue();
     raw_sql_request.update_query(query);
-    // SEND JSON TO THE SERVER
     raw_sql_request.request();
-    // TODO: new DataRequest class (RawSqlDataRequest)?
-    
 });

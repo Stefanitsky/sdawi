@@ -84,11 +84,11 @@ def get_response(data_request):
     elif data_type == 'table_data':
         columns, rows = g.connection.get_table_data(data_request['db_name'],
                                                     data_request['table_name'])
-        return build_table_data(rows, columns)
+        return build_table_data(columns, rows)
     elif data_type == 'raw_sql':
         try:
-            result = g.connection.execute_query(data_request['query'])
-            return jsonify(result)
+            columns, rows = g.connection.execute_query(data_request['query'])
+            return build_table_data(columns, rows)
         except Exception as e:
             return jsonify({'error': str(e)})
     else:
@@ -123,7 +123,7 @@ def build_db_tree(db_names, request_tables_list_for_db):
     return jsonify(data)
 
 
-def build_table_data(rows, columns):
+def build_table_data(columns, rows):
     column_keys = ['id', 'name', 'field']
     data = {
         'columns': [{k: column_name
