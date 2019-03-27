@@ -1,14 +1,25 @@
 var tree_requst = new TreeRequest();
 var table_request = new TableRequest();
 var raw_sql_request = new RawSQLRequest();
-var table_view = new TableView('table_data', [], []);
-var sql_result_view = new TableView('sql_query_result', [], []);
+
 var sql_input_area = CodeMirror(document.getElementById('sql_input_area'), {
     value: "SELECT * FROM pg_database;",
     mode:  "sql",
     lineNumbers: true,
     autoRefresh: true,
     lineWrapping: true
+});
+
+var table_data = new Handsontable(document.getElementById('table_data'), {
+    rowHeaders: true,
+    colHeaders: true,
+    licenseKey: 'non-commercial-and-evaluation'
+});
+
+var raw_sql_result = new Handsontable(document.getElementById('raw_sql_result'), {
+    rowHeaders: true,
+    colHeaders: true,
+    licenseKey: 'non-commercial-and-evaluation'
 });
 
 $(document).ready(function() {
@@ -55,16 +66,6 @@ $('.db_tree').on('activate_node.jstree', function (e, data) {
 
 $('.db_tree').on('select_node.jstree', function(e, data) {
     data.instance.open_node(data.node);
-});
-
-$(window).on("resize", function() {
-    table_view.grid.resizeCanvas();
-    sql_result_view.grid.resizeCanvas();
-});
-
-$('div#tabs').on('tabsactivate', function(event, ui) {
-    table_view.grid.resizeCanvas();
-    sql_result_view.grid.resizeCanvas();
 });
 
 $('#submit_query').click(function(event) {

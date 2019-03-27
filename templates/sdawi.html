@@ -14,10 +14,9 @@
 	<!-- Bootstrap -->
 	<link rel="stylesheet" type="text/css" href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<!-- Bootstrap end -->
-	<!-- SlickGrid -->
-	<link rel="stylesheet" href="/static/node_modules/slickgrid/slick.grid.css" type="text/css"/>
-	<link rel="stylesheet" href="/static/node_modules/slickgrid/slick-default-theme.css" type="text/css"/>
-	<!-- SlickGrid end -->
+	<!-- Handsontable -->
+	<link rel="stylesheet" type="text/css" href="static/node_modules/handsontable/dist/handsontable.full.min.css">
+	<!-- Handsontable end -->
 	<!-- jsTree -->
 	<link rel="stylesheet" href="/static/node_modules/jstree/dist/themes/default/style.min.css" />
 	<!-- jsTree end -->
@@ -44,17 +43,19 @@
 							<!-- Tabs -->
 							<li><a href="#welcome">Welcome</a></li>
 							<li><a href="#structure">Structure</a></li>
-							<li><a href="#table_data">Data</a></li>
+							<li><a href="#data">Data</a></li>
 							<li><a href="#sql">SQL</a></li>
 						</ul>
 						<!-- Tabs content -->
 						<div id="welcome">Welcome tab content</div>
-						<div id="table_data"></div>
+						<div id="data">
+							<div id="table_data"></div>
+						</div>
 						<div id="structure">Structure tab content</div>
 						<div id="sql">
 							<div id="sql_input_area"></div>
 							<button type="button" id="submit_query" class="btn btn-primary btn-sm">Submit query</button>
-							<div id="sql_query_result"></div>
+							<div id="raw_sql_result"></div>
 						</div>
 					</div>
 				</div>
@@ -72,15 +73,10 @@
 <script type="text/javascript" src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js">
 </script>
 <!-- Bootstrap JS end -->
-<!-- SlickGrid -->
+<!-- Handsontable -->
+<script type="text/javascript" src="static/node_modules/handsontable/dist/handsontable.full.min.js">
 </script>
-<script type="text/javascript" src="/static/node_modules/slickgrid/lib/jquery.event.drag-2.3.0.js">
-</script>
-<script type="text/javascript" src="/static/node_modules/slickgrid/slick.core.js">
-</script>
-<script type="text/javascript" src="/static/node_modules/slickgrid/slick.grid.js">
-</script>
-<!-- SlickGrid end -->
+<!-- Handsontable end -->
 <!-- CodeMirror -->
 <script type="text/javascript" src="/static/node_modules/codemirror/lib/codemirror.js"></script>
 <script type="text/javascript" src="/static/node_modules/codemirror/mode/sql/sql.js"></script>

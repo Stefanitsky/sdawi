@@ -124,13 +124,12 @@ def build_db_tree(db_names, request_tables_list_for_db):
 
 
 def build_table_data(columns, rows):
-    column_keys = ['id', 'name', 'field']
     data = {
-        'columns': [{k: column_name
-                     for k in column_keys} for column_name in columns],
-        'rows': [{k: v
-                  for (k, v) in zip(columns, row)} for row in rows]
+        'colHeaders': columns,
+        'columns': [{'data': column_name} for column_name in columns],
+        'rows': [{k: v for (k, v) in zip(columns, row)} for row in rows]
     }
+    print(data)
     return jsonify(data)
 
 
