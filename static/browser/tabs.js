@@ -8,7 +8,6 @@ function main_tabs_show() {
     structure_tab.hide();
     table_data_tab.hide();
     sql_tab.show();
-    $('div#tabs').tabs("option", "active", 0);
 }
 
 function database_tabs_show() {
@@ -16,7 +15,7 @@ function database_tabs_show() {
     structure_tab.show();
     table_data_tab.hide();
     sql_tab.show();
-    $('div#tabs').tabs("option", "active", 1);
+    
 }
 
 function table_tabs_show() {
@@ -24,5 +23,4 @@ function table_tabs_show() {
     structure_tab.show();
     table_data_tab.show();
     sql_tab.show();
-    $('div#tabs').tabs("option", "active", 1);
 }
