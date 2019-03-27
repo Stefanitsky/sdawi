@@ -71,7 +71,7 @@ def logout():
 @app.route('/get_db_info', methods=['POST'])
 def get_db_info():
     result = get_response(request.get_json())
-    print(result.get_json())
+    # print(result.get_json())
     return result
 
 
@@ -79,21 +79,20 @@ def get_response(data_request):
     data_type = data_request.get('type', None)
     if data_type == 'db_tree':
         result = g.connection.get_db_list()
-        if 'error' in result:
-            return result
         return build_db_tree(result,
                              data_request['request_tables_list_for_db'])
     elif data_type == 'table_data':
-        db_name = data_request['db_name']
-        table_name = data_request['table_name']
-        rows, columns = g.connection.get_table_data(db_name, table_name)
-        if 'error' in rows:
-            return rows
+        columns, rows = g.connection.get_table_data(data_request['db_name'],
+                                                    data_request['table_name'])
         return build_table_data(rows, columns)
     elif data_type == 'raw_sql':
-        return jsonify(g.connection.execute_query(data_request['query']))
+        try:
+            result = g.connection.execute_query(data_request['query'])
+            return jsonify(result)
+        except Exception as e:
+            return jsonify({'error': str(e)})
     else:
-        return {'error': 'Unknown error'}
+        return jsonify({'error': 'Unknown error'})
 
 
 def build_db_tree(db_names, request_tables_list_for_db):

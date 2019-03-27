@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"en",
+				"engine_module\tstatement"
+			],
+			[
+				"data",
+				"data_request\tstatement"
+			],
+			[
+				"ra",
+				"raw_sql_request"
+			],
+			[
+				"fail",
+				"fail_request"
+			],
+			[
+				"req",
+				"request_data"
+			],
+			[
+				"di",
+				"display\tproperty"
+			],
+			[
 				"j",
 				"jquery-ui"
 			],
@@ -42,10 +66,6 @@
 			[
 				"get_ta",
 				"get_table_rows\tfunction"
-			],
-			[
-				"data",
-				"data_request\tparam"
 			],
 			[
 				"jso",
@@ -435,19 +455,17 @@
 			"file": "static/sdawi.js",
 			"settings":
 			{
-				"buffer_size": 1396,
+				"buffer_size": 2127,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<title>Login</title>\n</head>\n<body>\n<div class=\"login-form\">\n    <form action=\"/login\" method=\"post\">\n        <h2 class=\"text-center\">Log in</h2>       \n        <div class=\"form-group\">\n            <input type=\"text\" name='db_user' class=\"form-control\" placeholder=\"Username\" required=\"required\">\n        </div>\n        <div class=\"form-group\">\n            <input type=\"password\" name='db_password' class=\"form-control\" placeholder=\"Password\" required=\"required\">\n        </div>\n        <div class=\"form-group\">\n            <button type=\"submit\" class=\"btn btn-primary btn-block\">Log in</button>\n        </div>\n        <div class=\"clearfix\">\n        </div>        \n    </form>\n</div>\n</body>\n</html>",
-			"file": "templates/login.html",
-			"file_size": 802,
-			"file_write_time": 131979817814475615,
+			"file": "static/data_request/data_request.js",
 			"settings":
 			{
-				"buffer_size": 739,
+				"buffer_size": 2909,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -455,7 +473,16 @@
 			"file": "templates/sdawi.html",
 			"settings":
 			{
-				"buffer_size": 3067,
+				"buffer_size": 3487,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "static/package.json",
+			"settings":
+			{
+				"buffer_size": 363,
 				"line_ending": "Unix"
 			}
 		}
@@ -638,18 +665,24 @@
 	"expanded_folders":
 	[
 		"/home/stefanitsky/projects/sdawi",
+		"/home/stefanitsky/projects/sdawi/dbcw",
 		"/home/stefanitsky/projects/sdawi/static",
-		"/home/stefanitsky/projects/sdawi/static/browser",
-		"/home/stefanitsky/projects/sdawi/static/data_request",
 		"/home/stefanitsky/projects/sdawi/static/node_modules",
-		"/home/stefanitsky/projects/sdawi/static/node_modules/codemirror",
+		"/home/stefanitsky/projects/sdawi/static/node_modules/slickgrid",
 		"/home/stefanitsky/projects/sdawi/templates"
 	],
 	"file_history":
 	[
+		"/home/stefanitsky/projects/sdawi/static/node_modules/slickgrid/package.json",
+		"/home/stefanitsky/projects/sdawi/static/css/jquery-ui-1.11.3.custom.css",
+		"/home/stefanitsky/projects/sdawi/templates/sdawi.html",
+		"/home/stefanitsky/projects/sdawi/dbcw/db_connection_wrapper.py",
+		"/home/stefanitsky/projects/sdawi/sdawi.py",
+		"/home/stefanitsky/projects/sdawi/static/node_modules/codemirror/lib/codemirror.css",
+		"/home/stefanitsky/projects/sdawi/static/node_modules/slickgrid/css/smoothness/jquery-ui-1.11.3.custom.css",
+		"/home/stefanitsky/projects/sdawi/templates/login.html",
 		"/home/stefanitsky/.config/sublime-text-3/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
 		"/home/stefanitsky/projects/sdawi/static/browser/tabs.js",
-		"/home/stefanitsky/projects/sdawi/static/node_modules/slickgrid/css/smoothness/jquery-ui-1.11.3.custom.css",
 		"/home/stefanitsky/projects/sdawi/static/node_modules/slickgrid/examples/examples.css",
 		"/home/stefanitsky/projects/sdawi/static/base.css",
 		"/home/stefanitsky/projects/sdawi/static/node_modules/slickgrid/test.html",
@@ -659,7 +692,6 @@
 		"/home/stefanitsky/projects/sdawi/static/browser/tabs_controller.js",
 		"/home/stefanitsky/projects/sdawi/static/node_modules/jquery-ui-dist/jquery-ui.css",
 		"/home/stefanitsky/projects/sdawi/Pipfile.lock",
-		"/home/stefanitsky/projects/sdawi/templates/sdawi.html",
 		"/home/stefanitsky/projects/sdawi/static/sdawi.js",
 		"/home/stefanitsky/projects/sdawi/static/node_modules/jquery-ui-dist/jquery-ui.theme.css",
 		"/home/stefanitsky/projects/sdawi/static/node_modules/jquery-ui-dist/jquery-ui.min.js",
@@ -672,8 +704,6 @@
 		"/home/stefanitsky/projects/sdawi/static/data_view/table_view.js",
 		"/home/stefanitsky/projects/sdawi/static/data_view/structure_view.js",
 		"/home/stefanitsky/projects/sdawi/static/table_view/table_view.js",
-		"/home/stefanitsky/projects/sdawi/dbcw/db_connection_wrapper.py",
-		"/home/stefanitsky/projects/sdawi/sdawi.py",
 		"/home/stefanitsky/projects/sdawi/static/tree/tree.js",
 		"/home/stefanitsky/projects/sdawi/static/js/data_request/data_request.js",
 		"/home/stefanitsky/projects/sdawi/static/js/sdawi.js",
@@ -689,7 +719,6 @@
 		"/home/stefanitsky/projects/SlickGrid/package.json",
 		"/home/stefanitsky/projects/sdawi/.gitignore",
 		"/home/stefanitsky/projects/sdawi/static/css/base.css",
-		"/home/stefanitsky/projects/sdawi/templates/login.html",
 		"/home/stefanitsky/projects/sdawi/config.py",
 		"/home/stefanitsky/projects/sdawi/Pipfile",
 		"/home/stefanitsky/projects/sdawi/login_form.py",
@@ -771,14 +800,11 @@
 		"/home/stefanitsky/projects/SDAWI/public/index.php",
 		"/home/stefanitsky/projects/SDAWI/public/css/test.css",
 		"/home/stefanitsky/projects/SDAWI/public/test.php",
-		"/home/stefanitsky/projects/Lector/lector/contentwidgets.py",
-		"/home/stefanitsky/projects/Lector/lector/settings.py",
-		"/home/stefanitsky/projects/Lector/setup.cfg",
-		"/home/stefanitsky/Downloads/bashrc"
+		"/home/stefanitsky/projects/Lector/lector/contentwidgets.py"
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 44.0
 	},
 	"find_in_files":
 	{
@@ -792,6 +818,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"rows",
 			"url",
 			"ui-tabs",
 			"#",
@@ -812,6 +839,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"result",
 			"structure_view",
 			"JSON_tree"
 		],
@@ -824,7 +852,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -833,25 +861,89 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1396,
+						"buffer_size": 2127,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								404,
-								404
+								2123,
+								2123
 							]
 						],
 						"settings":
 						{
+							"SL.13.region_keys":
+							[
+							],
 							"SL.14.region_keys":
 							[
 							],
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 714.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "static/data_request/data_request.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2909,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2695,
+								2695
+							]
+						],
+						"settings":
+						{
+							"SL.16.region_keys":
+							[
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1479.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "templates/sdawi.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3487,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								419,
+								419
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -861,26 +953,26 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "templates/login.html",
-					"semi_transient": false,
+					"buffer": 3,
+					"file": "static/package.json",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 739,
+						"buffer_size": 363,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								739,
-								739
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
-							"tab_size": 4,
+							"syntax": "Packages/zzz A File Icon zzz/aliases/JSON (NPM).sublime-syntax",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -888,38 +980,6 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "templates/sdawi.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3067,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								431,
-								431
-							]
-						],
-						"settings":
-						{
-							"SL.38.region_keys":
-							[
-							],
-							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 663.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
 					"type": "text"
 				}
 			]
