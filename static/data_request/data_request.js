@@ -82,7 +82,11 @@ class TableRequest extends RequestData {
 	}
 
 	success_request(data) {
-		table_view.update_data(data.columns, data.rows);
+		table_data.updateSettings({
+			colHeaders: data.colHeaders,
+			columns: data.columns,
+			data: data.rows
+		});
 	}
 
 	fail_request(data) {
@@ -105,8 +109,11 @@ class RawSQLRequest extends RequestData {
 			alert += data.error + '</div>';
 			$('#sql_query_result').html(alert);
 		} else {
-			sql_result_view.update_data(data.columns, data.rows);
-			console.log('yay');
+			raw_sql_result.updateSettings({
+				colHeaders: data.colHeaders,
+				columns: data.columns,
+				data: data.rows
+			});
 		}
 	}
 
