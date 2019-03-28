@@ -24,7 +24,7 @@ var table_data = new Handsontable(document.getElementById('table_data'), {
     licenseKey: 'non-commercial-and-evaluation'
 });
 
-var raw_sql_result = new Handsontable(document.getElementById('raw_sql_result'), {
+var raw_sql_result = new Handsontable(document.getElementById('success_sql_result'), {
     rowHeaders: true,
     colHeaders: true,
     manualRowResize: true,
@@ -51,8 +51,7 @@ $(document).ready(function() {
         elem: "tabs",
         open: 0
     });
-    // $('div#tabs').tabs();
-    // main_tabs_show();
+    main_tabs_show();
     // Request tree data from the server
     tree_requst.request();
     // Set interval to update every 1 sec

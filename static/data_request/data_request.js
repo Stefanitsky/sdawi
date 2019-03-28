@@ -105,10 +105,14 @@ class RawSQLRequest extends RequestData {
 
 	success_request(data) {
 		if ('error' in data) {
+			$('#success_sql_result').hide();
 			var alert = '<div class="alert alert-danger" role="alert">';
 			alert += data.error + '</div>';
-			$('#sql_query_result').html(alert);
+			$('#error_sql_result').html(alert);
+			$('#error_sql_result').show();
 		} else {
+			$('#error_sql_result').hide();
+			$('#success_sql_result').show();
 			raw_sql_result.updateSettings({
 				colHeaders: data.colHeaders,
 				columns: data.columns,
