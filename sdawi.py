@@ -14,15 +14,19 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 @app.before_request
 def before_request():
+    update_db_connection()
+
+
+def update_db_connection():
     g.db_user = session.get('db_user')
     g.db_password = session.get('db_password')
     g.db_name = session.get('db_name', 'postgres')
     g.db_host = session.get('db_host', 'localhost')
     g.connection = DBConnectionWrapper(
-        dbname=g.db_name,
-        user=g.db_user,
-        password=g.db_password,
-        host=g.db_host)
+            dbname=g.db_name,
+            user=g.db_user,
+            password=g.db_password,
+            host=g.db_host)
 
 
 @app.route('/')
@@ -70,13 +74,15 @@ def logout():
 
 @app.route('/get_db_info', methods=['POST'])
 def get_db_info():
-    result = get_response(request.get_json())
-    # print(result.get_json())
-    return result
+    # print(g.connection.get_current_connected_db())
+    return get_response(request.get_json())
 
 
 def get_response(data_request):
     data_type = data_request.get('type', None)
+    if data_request.get('db_name', None) is not None:
+        session['db_name'] = data_request['db_name']
+        update_db_connection()
     if data_type == 'db_tree':
         result = g.connection.get_db_list()
         return build_db_tree(result,
@@ -91,17 +97,25 @@ def get_response(data_request):
             return build_table_data(columns, rows)
         except Exception as e:
             return jsonify({'error': str(e)})
+    elif data_type == 'table_structure':
+        columns, rows = g.connection.get_table_structure(
+            data_request['db_name'], data_request['table_name'])
+        return build_table_data(columns, rows)
+    elif data_type == 'database_structure':
+        columns, rows = g.connection.get_db_structure(data_request['db_name'])
+        return build_table_data(columns, rows)
     else:
         return jsonify({'error': 'Unknown error'})
 
 
 def build_db_tree(db_names, request_tables_list_for_db):
-    data = []
+    data = [{'id': g.db_host, 'parent': '#',
+        'text': g.db_host, 'a_attr': {'type': 'host'}}]
     for db_name in db_names:
         # database row
         row = {
             'id': db_name,
-            'parent': '#',
+            'parent': g.db_host,
             'text': db_name,
             'a_attr': {
                 'type': 'db'
@@ -124,10 +138,14 @@ def build_db_tree(db_names, request_tables_list_for_db):
 
 
 def build_table_data(columns, rows):
+    print(columns, rows)
     data = {
         'colHeaders': columns,
-        'columns': [{'data': column_name} for column_name in columns],
-        'rows': [{k: v for (k, v) in zip(columns, row)} for row in rows]
+        'columns': [{
+            'data': column_name
+        } for column_name in columns],
+        'rows': [{k: v
+                  for (k, v) in zip(columns, row)} for row in rows]
     }
     return jsonify(data)
 
