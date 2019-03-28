@@ -24,7 +24,7 @@ var table_data = new Handsontable(document.getElementById('table_data'), {
     licenseKey: 'non-commercial-and-evaluation'
 });
 
-var raw_sql_result = new Handsontable(document.getElementById('raw_sql_result'), {
+var raw_sql_result = new Handsontable(document.getElementById('success_sql_result'), {
     rowHeaders: true,
     colHeaders: true,
     manualRowResize: true,
