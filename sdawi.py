@@ -36,9 +36,11 @@ def index():
     Returns authorization form or interface template depending on session.
     '''
     if g.connection.connection:
-        return render_template('sdawi.html')
+        return render_template('sdawi.html',
+            title='Simple Database Access Web Interface')
     else:
-        return render_template('login.html')
+        return render_template('login.html',
+            title='Login1')
 
 
 @app.route('/login', methods=['POST'])
