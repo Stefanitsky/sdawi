@@ -23,10 +23,10 @@ def update_db_connection():
     g.db_name = session.get('db_name', 'postgres')
     g.db_host = session.get('db_host', 'localhost')
     g.connection = DBConnectionWrapper(
-            dbname=g.db_name,
-            user=g.db_user,
-            password=g.db_password,
-            host=g.db_host)
+        dbname=g.db_name,
+        user=g.db_user,
+        password=g.db_password,
+        host=g.db_host)
 
 
 @app.route('/')
@@ -36,9 +36,14 @@ def index():
     Returns authorization form or interface template depending on session.
     '''
     if g.connection.connection:
-        return render_template('sdawi.html')
+        return render_template(
+            'sdawi.html', title='Simple Database Access Web Interface')
     else:
-        return render_template('login.html')
+        error = {
+            'display': session.get('tried_to_login', False),
+            'msg': g.connection.connection_error
+        }
+        return render_template('login.html', title='Login', error=error)
 
 
 @app.route('/login', methods=['POST'])
@@ -53,6 +58,7 @@ def login():
         db_password = request.form['db_password']
         session['db_user'] = db_user
         session['db_password'] = db_password
+        session['tried_to_login'] = True
         return redirect(url_for('index'))
 
 
@@ -66,6 +72,7 @@ def logout():
     session.pop('db_password', None)
     session.pop('db_name', None)
     session.pop('db_host', None)
+    session.pop('tried_to_login', False)
     if g.connection:
         g.connection.close()
         g.connection = None
@@ -109,8 +116,14 @@ def get_response(data_request):
 
 
 def build_db_tree(db_names, request_tables_list_for_db):
-    data = [{'id': g.db_host, 'parent': '#',
-        'text': g.db_host, 'a_attr': {'type': 'host'}}]
+    data = [{
+        'id': g.db_host,
+        'parent': '#',
+        'text': g.db_host,
+        'a_attr': {
+            'type': 'host'
+        }
+    }]
     for db_name in db_names:
         # database row
         row = {

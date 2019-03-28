@@ -1,71 +1,64 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Simple Database Access Web Interface</title>
-	<!-- Styles -->
-	<!-- Base -->
-	<link rel="stylesheet" type="text/css" href="/static/css/base.css">
-	<!-- Base end -->
-	<!-- Bootstrap -->
-	<link rel="stylesheet" type="text/css" href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css">
-	<!-- Bootstrap end -->
-	<!-- Handsontable -->
-	<link rel="stylesheet" type="text/css" href="static/node_modules/handsontable/dist/handsontable.full.min.css">
-	<!-- Handsontable end -->
-	<!-- jsTree -->
-	<link rel="stylesheet" href="/static/node_modules/jstree/dist/themes/default/style.min.css" />
-	<!-- jsTree end -->
-	<!-- CodeMirror -->
-	<link rel="stylesheet" href="/static/node_modules/codemirror/lib/codemirror.css">
-	<!-- CodeMirror end -->
-	<!-- Vanilla JS Tabs -->
-	<link rel="stylesheet" href="/static/node_modules/vanilla-js-tabs/dist/vanilla-js-tabs.css">
-	<!-- Vanilla JS Tabs end -->
-	<!-- Styles end -->
-</head>
-<body>
-	<div class="container-fluid">
-		<div class="main_container">
-			<div class="row">
-				<div class="col-sm-4">
-					<div class="left_column">
-						<a href="/logout">Logout</a>
-						<div class="db_tree"></div>
-					</div>
+{% extends "base.html" %}
+{% block head %}
+<!-- Base -->
+<link rel="stylesheet" type="text/css" href="/static/css/base.css">
+<!-- Base end -->
+<!-- Handsontable -->
+<link rel="stylesheet" type="text/css" href="static/node_modules/handsontable/dist/handsontable.full.min.css">
+<!-- Handsontable end -->
+<!-- jsTree -->
+<link rel="stylesheet" href="/static/node_modules/jstree/dist/themes/default/style.min.css" />
+<!-- jsTree end -->
+<!-- CodeMirror -->
+<link rel="stylesheet" href="/static/node_modules/codemirror/lib/codemirror.css">
+<!-- CodeMirror end -->
+<!-- Vanilla JS Tabs -->
+<link rel="stylesheet" href="/static/node_modules/vanilla-js-tabs/dist/vanilla-js-tabs.css">
+<!-- Vanilla JS Tabs end -->
+{% endblock %}
+{% block body %}
+<div class="container-fluid">
+	<div class="main_container">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="left_column">
+					<a href="/logout">Logout</a>
+					<div class="db_tree"></div>
 				</div>
-				<div class="col-sm-8">
-					<div class="js-tabs" id="tabs">
-					    <ul class="js-tabs__header">
-					        <li><a href="#" class="js-tabs__title">Welcome</a></li>
-					        <li><a href="#" class="js-tabs__title">Structure</a></li>
-					        <li><a href="#" class="js-tabs__title">Data</a></li>
-					        <li><a href="#" class="js-tabs__title">SQL</a></li>
-					    </ul>
-					    <div class="js-tabs__content">
-					        <h1>Welcome tab content</h1>
-					    </div>
-					    <div class="js-tabs__content">
-					        <h1>Structure tab content</h1>
-					        <div id="structure_data"></div>
-					    </div>
-					    <div class="js-tabs__content">
-					    	<div id="table_data"></div>
-					    </div>
-					    <div class="js-tabs__content">
-					        <div id="sql_input_area"></div>
-							<button type="button" id="submit_query" class="btn btn-primary btn-sm">Submit query</button>
-							<div id="raw_sql_result">
-								<div id="success_sql_result"></div>
-								<div id="error_sql_result"></div>
-							</div>
-					    </div>
-					</div>
+			</div>
+			<div class="col-sm-8">
+				<div class="js-tabs" id="tabs">
+				    <ul class="js-tabs__header">
+				        <li><a href="#" class="js-tabs__title">Welcome</a></li>
+				        <li><a href="#" class="js-tabs__title">Structure</a></li>
+				        <li><a href="#" class="js-tabs__title">Data</a></li>
+				        <li><a href="#" class="js-tabs__title">SQL</a></li>
+				    </ul>
+				    <div class="js-tabs__content">
+				        <h1>Welcome tab content</h1>
+				    </div>
+				    <div class="js-tabs__content">
+				        <h1>Structure tab content</h1>
+				        <div id="structure_data"></div>
+				    </div>
+				    <div class="js-tabs__content">
+				    	<div id="table_data"></div>
+				    </div>
+				    <div class="js-tabs__content">
+				        <div id="sql_input_area"></div>
+						<button type="button" id="submit_query" class="btn btn-primary btn-sm">Submit query</button>
+						<div id="raw_sql_result">
+							<div id="success_sql_result"></div>
+							<div id="error_sql_result"></div>
+						</div>
+				    </div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+{% endblock %}
+{% block body_scripts %}
 <!-- jQuery -->
 <script type="text/javascript" src="/static/node_modules/jquery/dist/jquery.min.js"></script>
 <!-- jQuery end -->
@@ -92,5 +85,4 @@
 <script type="text/javascript" src="/static/browser/tabs.js"></script>
 <script type="text/javascript" src="/static/sdawi.js"></script>
 <!-- Main end -->
-</body>
-</html>
+{% endblock %}
