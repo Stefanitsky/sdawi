@@ -22,7 +22,8 @@ class DBConnectionWrapper:
                 raise Exception('psycopg2 module not found')
             try:
                 self.connection = psycopg2.connect(**self.settings)
-            except psycopg2.Error:
+            except psycopg2.Error as e:
+                self.connection_error = e
                 self.connection = None
         else:
             raise NotImplementedError(

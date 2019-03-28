@@ -1,6 +1,14 @@
 {% extends "base.html" %}
+{% block head %}
+<style type="text/css">
+    html, body {
+      height: 100%;
+    }
+</style>
+{% endblock %}
 {% block body %}
-<div class="login-form">
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
     <form action="/login" method="post">
         <h2 class="text-center">Log in</h2>       
         <div class="form-group">
@@ -13,7 +21,13 @@
             <button type="submit" class="btn btn-primary btn-block">Log in</button>
         </div>
         <div class="clearfix">
-        </div>        
+        </div>
+        {% if error.display %}
+        <div class="alert alert-danger" role="alert">
+            {{ error.msg }}
+        </div>
+        {% endif %}
     </form>
+  </div>
 </div>
 {% endblock %}                                                              
