@@ -45,6 +45,14 @@ class DBConnectionWrapper:
     def fetch(self):
         return self.cursor.fetchall()
 
+    def update_current_connected_db(self, db_name):
+        if db_name != self.settings['dbname']:
+            self.settings['dbname'] = db_name
+            self.connect()
+
+    def get_current_connected_db(self):
+        return self.settings['dbname']
+
     def execute_query(self, query):
         if not self.connection:
             raise Exception('No database connection!')
@@ -61,30 +69,34 @@ class DBConnectionWrapper:
 
     def get_tables_list(self, db_name):
         if self.engine == 'postgres':
-            if db_name == self.settings['dbname']:
+            if self.get_current_connected_db() == db_name:
                 return self.execute_query(
                     "SELECT table_name FROM information_schema.tables \
                     WHERE table_schema = 'public';")[1]
             else:
-                settings_temp = self.settings
-                settings_temp['dbname'] = db_name
-                connection_temp = DBConnectionWrapper(self.engine,
-                                                      **settings_temp)
-                return connection_temp.get_tables_list(db_name)
-                connection_temp.close()
+                temp_settings = self.settings
+                temp_settings['dbname'] = db_name
+                temp_settings['engine'] = 'postgres'
+                temp_connection = DBConnectionWrapper(temp_settings)
+                return temp_connection.get_tables_list(db_name)
         else:
             raise Exception('Unknown database engine!')
 
-
     def get_table_data(self, db_name, table_name):
+        self.update_current_connected_db(db_name)
         if self.engine == 'postgres':
-            if db_name == self.settings['dbname']:
-                return self.execute_query(
-                    'SELECT * FROM {};'.format(table_name))
-            else:
-                settings_temp = self.settings
-                settings_temp['dbname'] = db_name
-                connection_temp = DBConnectionWrapper(self.engine,
-                                                      **settings_temp)
-                return connection_temp.get_table_data(db_name, table_name)
-                connection_temp.close()
+            return self.execute_query('SELECT * FROM {};'.format(table_name))
+
+    def get_db_structure(self, db_name):
+        self.update_current_connected_db(db_name)
+        if self.engine == 'postgres':
+            return self.execute_query(
+                "SELECT * FROM pg_tables where schemaname = 'public';")
+
+    def get_table_structure(self, db_name, table_name):
+        self.update_current_connected_db(db_name)
+        if self.engine == 'postgres':
+            return self.execute_query(
+                "SELECT * FROM information_schema.columns \
+                WHERE table_name = '{}'"
+                .format(table_name))

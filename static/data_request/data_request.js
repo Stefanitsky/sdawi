@@ -5,8 +5,8 @@ class RequestData {
 	// Automatically called when creating an instance,
 	// saves request type, request data (basic, contains only type) and data
 	constructor(request_type) {
-		this.request_type = request_type;
-		this.request_data = {type: request_type};
+		this.request_data = {}
+		this.request_data['type'] = request_type;
 		this.data = null;
 	}
 
@@ -71,7 +71,7 @@ class TreeRequest extends RequestData {
 /**
 * Table request class, extends base request class (RequestData)
 */
-class TableRequest extends RequestData {
+class TableDataRequest extends RequestData {
 	constructor() {
 		super('table_data');
 	}
@@ -123,5 +123,50 @@ class RawSQLRequest extends RequestData {
 
 	fail_request(data) {
 		console.log('RawSQLRequest fail: ' + data);
+	}
+}
+
+class TableStructureRequest extends RequestData {
+	constructor() {
+		super('table_structure');
+	}
+
+	update_request_data(db_name, table_name) {
+		this.request_data['db_name'] = db_name;
+		this.request_data['table_name'] = table_name;
+	}
+
+	success_request(data) {
+		structure_data.updateSettings({
+			colHeaders: data.colHeaders,
+			columns: data.columns,
+			data: data.rows
+		});
+	}
+
+	fail_request(data) {
+		console.log('TableStructureRequest fail: ' + data);
+	}
+}
+
+class DatabaseStructureRequest extends RequestData {
+	constructor() {
+		super('database_structure');
+	}
+
+	update_request_data(db_name) {
+		this.request_data['db_name'] = db_name;
+	}
+
+	success_request(data) {
+		structure_data.updateSettings({
+			colHeaders: data.colHeaders,
+			columns: data.columns,
+			data: data.rows
+		});
+	}
+
+	fail_request(data) {
+		console.log('DatabaseStructureRequest fail: ' + data);
 	}
 }
