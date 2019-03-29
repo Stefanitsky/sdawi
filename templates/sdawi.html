@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block head %}
 <!-- Base -->
-<link rel="stylesheet" type="text/css" href="/static/css/base.css">
+<link rel="stylesheet" type="text/css" href="/static/css/sdawi.css">
 <!-- Base end -->
 <!-- Handsontable -->
 <link rel="stylesheet" type="text/css" href="static/node_modules/handsontable/dist/handsontable.full.min.css">
@@ -18,15 +18,15 @@
 {% endblock %}
 {% block body %}
 <div class="container-fluid">
-	<div class="main_container">
-		<div class="row">
-			<div class="col-sm-4">
-				<div class="left_column">
-					<a href="/logout">Logout</a>
-					<div class="db_tree"></div>
-				</div>
+	<div class="row">
+		<div class="col-sm-auto">
+			<div class="content">
+				<a href="/logout"><img src="/static/icons/shutdown.png"> Logout</a>
+				<div class="db_tree"></div>
 			</div>
-			<div class="col-sm-8">
+		</div>
+		<div class="col-sm">
+			<div class="content">
 				<div class="js-tabs" id="tabs">
 				    <ul class="js-tabs__header">
 				        <li><a href="#" class="js-tabs__title">Welcome</a></li>
@@ -46,7 +46,9 @@
 				    </div>
 				    <div class="js-tabs__content">
 				        <div id="sql_input_area"></div>
-						<button type="button" id="submit_query" class="btn btn-primary btn-sm">Submit query</button>
+				        <div class="text-right">
+							<button type="button" id="submit_query_button" class="btn btn-primary btn-sm">Submit query</button>
+				        </div>
 						<div id="raw_sql_result">
 							<div id="success_sql_result"></div>
 							<div id="error_sql_result"></div>
@@ -85,4 +87,9 @@
 <script type="text/javascript" src="/static/browser/tabs.js"></script>
 <script type="text/javascript" src="/static/sdawi.js"></script>
 <!-- Main end -->
+{% endblock %}
+{% block footer %}
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse h-100">
+	<p>Icons by <a href="https://icons8.com">icons8</a></p>
+</nav>
 {% endblock %}

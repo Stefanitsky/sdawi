@@ -120,6 +120,7 @@ def build_db_tree(db_names, request_tables_list_for_db):
         'id': g.db_host,
         'parent': '#',
         'text': g.db_host,
+        'icon': '/static/icons/host.png',
         'a_attr': {
             'type': 'host'
         }
@@ -130,6 +131,7 @@ def build_db_tree(db_names, request_tables_list_for_db):
             'id': db_name,
             'parent': g.db_host,
             'text': db_name,
+            'icon': '/static/icons/database.png',
             'a_attr': {
                 'type': 'db'
             }
@@ -142,6 +144,7 @@ def build_db_tree(db_names, request_tables_list_for_db):
                     'id': table[0],
                     'parent': db_name,
                     'text': table[0],
+                    'icon': '/static/icons/table.png',
                     'a_attr': {
                         'type': 'table'
                     }
