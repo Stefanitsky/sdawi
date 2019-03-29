@@ -60,9 +60,17 @@ $(document).ready(function() {
         {'core' : {
             'multiple': false,
             'dblclick_toggle': false,
-            'data' : [{'id': 'no_connection', 'parent': '#', 'text': 'No connection'}],
+            'data': [
+                {'id': 'no_connection',
+                    'parent': '#',
+                    'text': 'No connection',
+                    'a_attr': {
+                        'type': 'host'
+                    }
+                }
+            ],
         },
-        //'plugins' : ['contextmenu']
+        //'plugins' : ['types']
     });
     // Init tabs
     tabs = new Tabs({
