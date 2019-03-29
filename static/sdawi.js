@@ -118,7 +118,7 @@ $('.db_tree').on('select_node.jstree', function(e, data) {
     data.instance.open_node(data.node);
 });
 // Add events on click of the submit query button
-$('#submit_query').click(function(event) {
+$('#submit_query_button').click(function(event) {
     query = sql_input_area.getDoc().getValue();
     raw_sql_request.update_query(query);
     raw_sql_request.request();
