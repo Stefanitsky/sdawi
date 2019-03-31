@@ -18,15 +18,22 @@ def before_request():
 
 
 def update_db_connection():
+    g.db_engine = session.get('db_engine', 'postgres')
+    g.db_host = session.get('db_host', 'localhost')
+    g.db_port = session.get('db_port', '5432')
     g.db_user = session.get('db_user')
     g.db_password = session.get('db_password')
-    g.db_name = session.get('db_name', 'postgres')
-    g.db_host = session.get('db_host', 'localhost')
+    if g.db_engine == 'postgres':
+        g.db_name = session.get('db_name', 'postgres')
+    else:
+        g.db_name = None
     g.connection = DBConnectionWrapper(
+        engine=g.db_engine,
         dbname=g.db_name,
         user=g.db_user,
         password=g.db_password,
-        host=g.db_host)
+        host=g.db_host,
+        port=g.db_port)
 
 
 @app.route('/')
@@ -54,10 +61,15 @@ def login():
     and redirects to the main route.
     '''
     if request.method == 'POST':
-        db_user = request.form['db_user']
-        db_password = request.form['db_password']
-        session['db_user'] = db_user
-        session['db_password'] = db_password
+        if request.form['db_engine'] == 'PostgreSQL':
+            session['db_engine'] = 'postgres'
+            session['db_name'] = 'postgres'
+        elif request.form['db_engine'] == 'MySQL':
+            session['db_engine'] = 'mysql'
+        session['db_host'] = request.form['db_host']
+        session['db_port'] = request.form['db_port']
+        session['db_user'] = request.form['db_user']
+        session['db_password'] = request.form['db_password']
         session['tried_to_login'] = True
         return redirect(url_for('index'))
 
@@ -68,10 +80,12 @@ def logout():
     Logout route.
     Deletes session data, closes db connection and redirects to the main route.
     '''
+    session.pop('db_engine', None)
+    session.pop('db_host', None)
+    session.pop('db_port', None)
     session.pop('db_user', None)
     session.pop('db_password', None)
     session.pop('db_name', None)
-    session.pop('db_host', None)
     session.pop('tried_to_login', False)
     if g.connection:
         g.connection.close()
