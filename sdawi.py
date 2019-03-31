@@ -23,17 +23,26 @@ def update_db_connection():
     g.db_port = session.get('db_port', '5432')
     g.db_user = session.get('db_user')
     g.db_password = session.get('db_password')
+    # TODO: kwargs array
     if g.db_engine == 'postgres':
         g.db_name = session.get('db_name', 'postgres')
     else:
         g.db_name = None
-    g.connection = DBConnectionWrapper(
-        engine=g.db_engine,
-        dbname=g.db_name,
-        user=g.db_user,
-        password=g.db_password,
-        host=g.db_host,
-        port=g.db_port)
+    if g.db_name is not None:
+        g.connection = DBConnectionWrapper(
+            engine=g.db_engine,
+            dbname=g.db_name,
+            user=g.db_user,
+            password=g.db_password,
+            host=g.db_host,
+            port=g.db_port)
+    else:
+        g.connection = DBConnectionWrapper(
+            engine=g.db_engine,
+            user=g.db_user,
+            password=g.db_password,
+            host=g.db_host,
+            port=g.db_port)
 
 
 @app.route('/')
@@ -105,8 +114,10 @@ def get_response(data_request):
         session['db_name'] = data_request['db_name']
         update_db_connection()
     if data_type == 'db_tree':
-        result = g.connection.get_db_list()
-        return build_db_tree(result,
+        db_list = g.connection.get_db_list()
+        # TODO: get tables list for each db in request
+        # tables_list = 
+        return build_db_tree(db_list,
                              data_request['request_tables_list_for_db'])
     elif data_type == 'table_data':
         columns, rows = g.connection.get_table_data(data_request['db_name'],

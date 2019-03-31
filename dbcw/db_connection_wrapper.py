@@ -12,6 +12,8 @@ class DBConnectionWrapper:
         if self.engine == 'postgres':
             if 'dbname' not in self.settings:
                 self.settings['dbname'] = 'postgres'
+        elif self.engine == 'mysql':
+            self.settings['passwd'] = self.settings.pop('password')
 
     def connect(self):
         if self.engine == 'postgres':
@@ -19,12 +21,23 @@ class DBConnectionWrapper:
                 import psycopg2
                 self.engine_module = psycopg2
             except ImportError:
-                raise Exception('psycopg2 module not found')
+                self.connection_error = 'psycopg2 module not found'
             try:
                 self.connection = psycopg2.connect(**self.settings)
             except psycopg2.Error as e:
                 self.connection_error = e
                 self.connection = None
+        elif self.engine == 'mysql':
+            try:
+                import mysql.connector
+                self.engine_module = mysql.connector
+                try:
+                    self.connection = mysql.connector.connect(**self.settings)
+                except mysql.connector.Error as e:
+                    self.connection_error = e
+                    self.connection = None
+            except ImportError:
+                self.connection_error = 'mysql module not found!'
         else:
             raise NotImplementedError(
                 'Database engine {} not implemented!'.format(self.engine))
@@ -67,6 +80,10 @@ class DBConnectionWrapper:
             result = self.execute_query(
                 "SELECT datname FROM pg_database WHERE datistemplate = 'f';")
             return [db_name[0] for db_name in result[1]]
+        if self.engine == 'mysql':
+            self.cursor.execute("SHOW DATABASES")
+            print('DB_LIST:', self.cursor)
+            return self.cursor
 
     def get_tables_list(self, db_name):
         if self.engine == 'postgres':
@@ -80,6 +97,10 @@ class DBConnectionWrapper:
                 temp_settings['engine'] = 'postgres'
                 temp_connection = DBConnectionWrapper(temp_settings)
                 return temp_connection.get_tables_list(db_name)
+        elif self.engine == 'mysql':
+            self.cursor.execute('USE {}'.format(db_name))
+            self.cursor.execute('SHOW TABLES')
+            return self.cursor
         else:
             raise Exception('Unknown database engine!')
 
@@ -99,5 +120,4 @@ class DBConnectionWrapper:
         if self.engine == 'postgres':
             return self.execute_query(
                 "SELECT * FROM information_schema.columns \
-                WHERE table_name = '{}'"
-                .format(table_name))
+                WHERE table_name = '{}'".format(table_name))
