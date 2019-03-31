@@ -1,0 +1,39 @@
+html {
+    height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.row, .content, .js-tabs__content {
+    height: 100%;
+    margin-bottom: 20px;
+}
+
+.container-fluid {
+    flex: 1;
+    margin-top: 15px;
+}
+
+footer {
+    height: 6vh;
+}
+
+footer p {
+    margin: auto;
+}
+
+.js-tabs {
+    margin: 0px !important;
+}
+
+#sql_input_area {
+    border: 1px solid #d5d5d5;
+}
+
+#submit_query_button {
+    margin: 5px 0px;
+}
