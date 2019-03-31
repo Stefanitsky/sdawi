@@ -5,9 +5,6 @@ class DBConnectionWrapper:
     Supported engines:
         - PostgreSQL
     '''
-    settings = {}  # type: dict
-    engine_module = None
-
     def _check_settings(self):
         if self.engine == 'postgres':
             if 'dbname' not in self.settings:
@@ -45,9 +42,12 @@ class DBConnectionWrapper:
             self.cursor = self.connection.cursor()
 
     def __init__(self, engine='postgres', **kwargs):
+        self.settings = {}
+        self.engine_module = None
         self.settings.update(**kwargs)
         self.engine = self.settings.pop('engine', engine)
         self._check_settings()
+        print(self.settings)
         self.connection = None
         self.cursor = None
         self.connect()

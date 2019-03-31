@@ -12,37 +12,19 @@ app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 
+
 @app.before_request
-def before_request():
-    update_db_connection()
-
-
 def update_db_connection():
-    g.db_engine = session.get('db_engine', 'postgres')
-    g.db_host = session.get('db_host', 'localhost')
-    g.db_port = session.get('db_port', '5432')
-    g.db_user = session.get('db_user')
-    g.db_password = session.get('db_password')
-    # TODO: kwargs array
-    if g.db_engine == 'postgres':
-        g.db_name = session.get('db_name', 'postgres')
-    else:
-        g.db_name = None
-    if g.db_name is not None:
-        g.connection = DBConnectionWrapper(
-            engine=g.db_engine,
-            dbname=g.db_name,
-            user=g.db_user,
-            password=g.db_password,
-            host=g.db_host,
-            port=g.db_port)
-    else:
-        g.connection = DBConnectionWrapper(
-            engine=g.db_engine,
-            user=g.db_user,
-            password=g.db_password,
-            host=g.db_host,
-            port=g.db_port)
+    g.connection_args = dict()
+    g.connection_args['engine'] = session.get('db_engine')
+    g.connection_args['host'] = session.get('db_host')
+    g.connection_args['port'] = session.get('db_port')
+    g.connection_args['user'] = session.get('db_user')
+    g.connection_args['password'] = session.get('db_password')
+    if g.connection_args['engine'] == 'postgres':
+        g.connection_args['dbname'] = 'postgres'
+    if all(g.connection_args.values()):
+        g.connection = DBConnectionWrapper(**g.connection_args)
 
 
 @app.route('/')
@@ -51,14 +33,14 @@ def index():
     Main route.
     Returns authorization form or interface template depending on session.
     '''
-    if g.connection.connection:
-        return render_template(
-            'sdawi.html', title='Simple Database Access Web Interface')
+    if hasattr(g, 'connection'):
+        if hasattr(g.connection, 'connection'):
+            return render_template(
+                'sdawi.html', title='Simple Database Access Web Interface')
     else:
-        error = {
-            'display': session.get('tried_to_login', False),
-            'msg': g.connection.connection_error
-        }
+        error = {'display': session.get('tried_to_login', False)}
+        if session.get('tried_to_login', False):
+            error['msg'] = g.connection.connection_error
         return render_template('login.html', title='Login', error=error)
 
 
@@ -96,7 +78,8 @@ def logout():
     session.pop('db_password', None)
     session.pop('db_name', None)
     session.pop('tried_to_login', False)
-    if g.connection:
+    g.connection_args = dict()
+    if hasattr(g, 'connection'):
         g.connection.close()
         g.connection = None
     return redirect(url_for('index'))
@@ -104,7 +87,6 @@ def logout():
 
 @app.route('/get_db_info', methods=['POST'])
 def get_db_info():
-    # print(g.connection.get_current_connected_db())
     return get_response(request.get_json())
 
 
@@ -142,9 +124,9 @@ def get_response(data_request):
 
 def build_db_tree(db_names, request_tables_list_for_db):
     data = [{
-        'id': g.db_host,
+        'id': g.connection_args['host'],
         'parent': '#',
-        'text': g.db_host,
+        'text': g.connection_args['host'],
         'icon': '/static/icons/host.png',
         'a_attr': {
             'type': 'host'
@@ -154,7 +136,7 @@ def build_db_tree(db_names, request_tables_list_for_db):
         # database row
         row = {
             'id': db_name,
-            'parent': g.db_host,
+            'parent': g.connection_args['host'],
             'text': db_name,
             'icon': '/static/icons/database.png',
             'a_attr': {
@@ -179,7 +161,6 @@ def build_db_tree(db_names, request_tables_list_for_db):
 
 
 def build_table_data(columns, rows):
-    print(columns, rows)
     data = {
         'colHeaders': columns,
         'columns': [{
