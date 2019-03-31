@@ -1,3 +1,6 @@
+import json
+
+
 class DBConnectionWrapper:
     '''
     Database connection wrapper.
@@ -46,8 +49,9 @@ class DBConnectionWrapper:
         self.engine_module = None
         self.settings.update(**kwargs)
         self.engine = self.settings.pop('engine', engine)
+        with open('db_queries.json') as f:
+            self.queries = json.load(f)[self.engine]
         self._check_settings()
-        print(self.settings)
         self.connection = None
         self.cursor = None
         self.connect()
@@ -60,37 +64,41 @@ class DBConnectionWrapper:
         return self.cursor.fetchall()
 
     def update_current_connected_db(self, db_name):
-        if db_name != self.settings['dbname']:
-            self.settings['dbname'] = db_name
+        if self.engine == 'postgres':
+            if db_name != self.settings['dbname']:
+                self.settings['dbname'] = db_name
+                self.connect()
+        elif self.engine == 'mysql':
+            self.settings['db'] = db_name
             self.connect()
 
     def get_current_connected_db(self):
-        return self.settings['dbname']
+        if self.engine == 'postgres':
+            return self.settings['dbname']
+        elif self.engine == 'mysql':
+            return self.settings['db']
 
     def execute_query(self, query):
         if not self.connection:
             raise Exception('No database connection!')
-        if self.engine == 'postgres':
+        if self.engine == 'postgres' or self.engine == 'mysql':
             self.cursor.execute(query)
             columns = [name[0] for name in self.cursor.description]
             return columns, self.fetch()
 
     def get_db_list(self):
         if self.engine == 'postgres':
-            result = self.execute_query(
-                "SELECT datname FROM pg_database WHERE datistemplate = 'f';")
+            result = self.execute_query(self.queries['get_db_list'])
             return [db_name[0] for db_name in result[1]]
         if self.engine == 'mysql':
-            self.cursor.execute("SHOW DATABASES")
-            print('DB_LIST:', self.cursor)
-            return self.cursor
+            result = self.execute_query(self.queries['get_db_list'])
+            return [db_name[0] for db_name in result[1]]
 
     def get_tables_list(self, db_name):
+        self.update_current_connected_db(db_name)
         if self.engine == 'postgres':
             if self.get_current_connected_db() == db_name:
-                return self.execute_query(
-                    "SELECT table_name FROM information_schema.tables \
-                    WHERE table_schema = 'public';")[1]
+                return self.execute_query(self.queries['get_tables_list'])[1]
             else:
                 temp_settings = self.settings
                 temp_settings['dbname'] = db_name
@@ -98,26 +106,30 @@ class DBConnectionWrapper:
                 temp_connection = DBConnectionWrapper(temp_settings)
                 return temp_connection.get_tables_list(db_name)
         elif self.engine == 'mysql':
-            self.cursor.execute('USE {}'.format(db_name))
-            self.cursor.execute('SHOW TABLES')
-            return self.cursor
+            self.cursor.execute("USE {};".format(db_name))  # TODO: rework
+            result = self.execute_query(self.queries['get_tables_list'])
+            return result[1]
         else:
             raise Exception('Unknown database engine!')
 
     def get_table_data(self, db_name, table_name):
         self.update_current_connected_db(db_name)
-        if self.engine == 'postgres':
-            return self.execute_query('SELECT * FROM {};'.format(table_name))
+        if self.engine == 'postgres' or self.engine == 'mysql':
+            return self.execute_query(self.queries['get_table_data']
+                .format(table_name))
 
     def get_db_structure(self, db_name):
         self.update_current_connected_db(db_name)
         if self.engine == 'postgres':
-            return self.execute_query(
-                "SELECT * FROM pg_tables where schemaname = 'public';")
+            return self.execute_query(self.queries['get_db_structure'])
+        elif self.engine == 'mysql':
+            return self.execute_query(self.queries['get_db_structure'])
 
     def get_table_structure(self, db_name, table_name):
         self.update_current_connected_db(db_name)
         if self.engine == 'postgres':
-            return self.execute_query(
-                "SELECT * FROM information_schema.columns \
-                WHERE table_name = '{}'".format(table_name))
+            return self.execute_query(self.queries['get_table_structure']
+                .format(table_name))
+        elif self.engine == 'mysql':
+            return self.execute_query(self.queries['get_table_structure']
+                .format(table_name))

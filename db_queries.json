@@ -1,0 +1,18 @@
+{
+    "postgres":
+    {
+        "get_db_list": "SELECT datname FROM pg_database WHERE datistemplate = 'f';",
+        "get_tables_list": "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';",
+        "get_table_data": "SELECT * FROM {};",
+        "get_db_structure": "SELECT * FROM pg_tables where schemaname = 'public';",
+        "get_table_structure": "SELECT * FROM information_schema.columns WHERE table_name = '{}'"
+    },
+    "mysql":
+    {
+        "get_db_list": "SHOW DATABASES;",
+        "get_tables_list": "SHOW TABLES;",
+        "get_table_data": "SELECT * FROM {};",
+        "get_db_structure": "SHOW TABLE STATUS;",
+        "get_table_structure": "DESCRIBE {}"
+    }
+}

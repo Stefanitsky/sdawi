@@ -5,7 +5,7 @@ SDAWI - Simple Database Access Web Interface.
 from flask import Flask, render_template, request
 from flask import redirect, session, url_for, jsonify, g
 import config
-from dbcw import DBConnectionWrapper
+from db_connection_wrapper import DBConnectionWrapper
 
 app = Flask(__name__)
 
