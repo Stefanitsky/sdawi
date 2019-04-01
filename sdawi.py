@@ -162,13 +162,15 @@ def build_db_tree(db_names, request_tables_list_for_db):
 
 
 def build_table_data(columns, rows):
+    if len(rows) == 0:
+        rows = [(['Empty table'] for k in columns)]
     data = {
         'colHeaders': columns,
         'columns': [{
             'data': column_name
         } for column_name in columns],
-        'rows': [{k: v
-                  for (k, v) in zip(columns, row)} for row in rows]
+        'rows': [{k: v for (k, v) in zip(columns, row)}
+                for row in rows]
     }
     return jsonify(data)
 
