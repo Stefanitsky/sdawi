@@ -7,6 +7,7 @@ class DBConnectionWrapper:
     Allows you to connect to different types of databases.
     Supported engines:
         - PostgreSQL
+        - MySQL
     '''
     def _check_settings(self):
         if self.engine == 'postgres':
@@ -76,12 +77,18 @@ class DBConnectionWrapper:
         if self.engine == 'postgres':
             return self.settings['dbname']
         elif self.engine == 'mysql':
-            return self.settings['db']
+            return self.settings.get('db', None)
 
-    def execute_query(self, query):
+    def execute_query(self, query, db_name=None):
         if not self.connection:
             raise Exception('No database connection!')
-        if self.engine == 'postgres' or self.engine == 'mysql':
+        if self.engine == 'postgres':
+            self.cursor.execute(query)
+            columns = [name[0] for name in self.cursor.description]
+            return columns, self.fetch()
+        if self.engine == 'mysql':
+            if db_name is not None:
+                self.cursor.execute("USE {};".format(db_name))
             self.cursor.execute(query)
             columns = [name[0] for name in self.cursor.description]
             return columns, self.fetch()

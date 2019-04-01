@@ -91,6 +91,7 @@ def get_db_info():
 
 
 def get_response(data_request):
+    print(data_request)
     data_type = data_request.get('type', None)
     if data_request.get('db_name', None) is not None:
         session['db_name'] = data_request['db_name']
@@ -98,7 +99,6 @@ def get_response(data_request):
     if data_type == 'db_tree':
         db_list = g.connection.get_db_list()
         # TODO: get tables list for each db in request
-        # tables_list = 
         return build_db_tree(db_list,
                              data_request['request_tables_list_for_db'])
     elif data_type == 'table_data':
@@ -107,7 +107,8 @@ def get_response(data_request):
         return build_table_data(columns, rows)
     elif data_type == 'raw_sql':
         try:
-            columns, rows = g.connection.execute_query(data_request['query'])
+            columns, rows = g.connection.execute_query(
+                data_request['query'], data_request['selected_db'])
             return build_table_data(columns, rows)
         except Exception as e:
             return jsonify({'error': str(e)})

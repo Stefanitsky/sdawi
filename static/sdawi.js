@@ -98,7 +98,7 @@ $('.db_tree').on('activate_node.jstree', function (e, data) {
         db_structure_request.update_request_data(data.node.id);
         db_structure_request.request();
         database_tabs_show();
-
+        raw_sql_request.update_selected_db(data.node.id);
     }
     else if (data.node.a_attr.type == 'table') {
         var db_name = data.node.parent;
@@ -119,7 +119,7 @@ $('.db_tree').on('select_node.jstree', function(e, data) {
 });
 // Add events on click of the submit query button
 $('#submit_query_button').click(function(event) {
-    query = sql_input_area.getDoc().getValue();
+    var query = sql_input_area.getDoc().getValue();
     raw_sql_request.update_query(query);
     raw_sql_request.request();
 });

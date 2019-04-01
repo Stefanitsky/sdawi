@@ -103,6 +103,10 @@ class RawSQLRequest extends RequestData {
 		this.request_data['query'] = query;
 	}
 
+	update_selected_db(selected_db) {
+		this.request_data['selected_db'] = selected_db;
+	}
+
 	success_request(data) {
 		if ('error' in data) {
 			$('#success_sql_result').hide();
