@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b9579c252d8c62df391601ca5ac8ec8c84feb68fdeb948117bcfd61663846890"
+            "sha256": "e87673c822e797272460d1ee07aa6302b62ed37d10c7f1484757753bdee38512"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -22,6 +22,13 @@
                 "sha256:5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"
             ],
             "version": "==7.0"
+        },
+        "dbcw": {
+            "hashes": [
+                "sha256:201160e948fc5d3130d722b35d2f88ddc653b3dfec6e45ea25fcfde0ed2c6eff"
+            ],
+            "index": "pypi",
+            "version": "==0.2.1"
         },
         "flask": {
             "hashes": [
@@ -80,10 +87,9 @@
         },
         "mysql-connector": {
             "hashes": [
-                "sha256:d5b95b8de234873563855e288f0c9ef85b119c0a862287cbcee7d6654cf60467"
+                "sha256:1733e6ce52a049243de3264f1fbc22a852cb35458c4ad739ba88189285efdf32"
             ],
-            "index": "pypi",
-            "version": "==2.1.6"
+            "version": "==2.2.9"
         },
         "psycopg2": {
             "hashes": [
@@ -118,7 +124,6 @@
                 "sha256:f36b333e9f86a2fba960c72b90c34be6ca71819e300f7b1fc3d2b0f0b2c546cd",
                 "sha256:f4526d078aedd5187d0508aa5f9a01eae6a48a470ed678406da94b4cd6524b7e"
             ],
-            "index": "pypi",
             "version": "==2.7.7"
         },
         "werkzeug": {
