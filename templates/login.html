@@ -14,6 +14,7 @@
 <div class="container h-100">
   <div class="row h-100 justify-content-center align-items-center">
     <form action="/login" method="post">
+        <!-- Engine select -->
         <div class="form-group">
             <label for="db_engine">Database engine</label>
             <select class="form-control" id="db_engine" name="db_engine">
@@ -21,6 +22,8 @@
                 <option>MySQL</option>
             </select>
         </div>
+        <!-- Engine select end -->
+        <!-- Host and port field -->
         <div class="form-group">
             <div class="form-row">
                 <div class="col-8">
@@ -33,21 +36,30 @@
                 </div>
             </div>
         </div>
+        <!-- Host and port field end -->
+        <!-- User field -->
         <div class="form-group">
             <input type="text" name='db_user' class="form-control" placeholder="Username" required="required">
         </div>
+        <!-- User field end -->
+        <!-- Password field -->
         <div class="form-group">
             <input type="password" name='db_password' class="form-control" placeholder="Password" required="required">
         </div>
+        <!-- Password field end -->
+        <!-- Login button -->
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Login</button>
         </div>
+        <!-- Login button end -->
         <div class="clearfix">
         </div>
+        <!-- Error alert -->
         {% if error.display %}
         <div class="alert alert-danger" role="alert">
             {{ error.msg }}
         </div>
+        <!-- Error alert end -->
         {% endif %}
     </form>
   </div>
@@ -55,12 +67,12 @@
 {% endblock %}
 {% block body_scripts %}
 <script type="text/javascript">
+// Сhanges the standard port in the input field of the port
+// depending on the selected engine
 $('select[name="db_engine"]').on('change',function() {
     if ($(this).val() == 'PostgreSQL') {
-        console.log('POST');
         $('input[name="db_port"]').val('5432');
     } else if ($(this).val() == 'MySQL') {
-        console.log('MYSQL');
         $('input[name="db_port"]').val('3306');
     }
 });

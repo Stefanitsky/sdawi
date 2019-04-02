@@ -19,31 +19,45 @@
 {% block body %}
 <div class="container-fluid">
 	<div class="row">
+		<!-- Left column -->
 		<div class="col-sm-auto">
 			<div class="content">
 				<a href="/logout"><img src="/static/sdawi/icons/shutdown.png"> Logout</a>
 				<div class="db_tree"></div>
 			</div>
 		</div>
+		<!-- Left column end -->
+		<!-- Right column -->
 		<div class="col-sm">
 			<div class="content">
+				<!-- Tabs block -->
 				<div class="js-tabs" id="tabs">
 				    <ul class="js-tabs__header">
+				    	<!-- Tabs headers -->
 				        <li><a href="#" class="js-tabs__title">Welcome</a></li>
 				        <li><a href="#" class="js-tabs__title">Structure</a></li>
 				        <li><a href="#" class="js-tabs__title">Data</a></li>
 				        <li><a href="#" class="js-tabs__title">SQL</a></li>
+				    	<!-- Tabs headers end -->
 				    </ul>
+				    <!-- Tabs content -->
+				    <!-- Welcome tab -->
 				    <div class="js-tabs__content">
 				        <h1>Welcome tab content</h1>
 				    </div>
+				    <!-- Welcome tab end -->
+				    <!-- Structure tab -->
 				    <div class="js-tabs__content">
 				        <h1>Structure tab content</h1>
 				        <div id="structure_data"></div>
 				    </div>
+				    <!-- Structure tab end -->
+				    <!-- Table data tab -->
 				    <div class="js-tabs__content">
 				    	<div id="table_data"></div>
 				    </div>
+				    <!-- Table data tab end -->
+				    <!-- Raw SQL tab -->
 				    <div class="js-tabs__content">
 				        <div id="sql_input_area"></div>
 				        <div class="text-right">
@@ -54,9 +68,13 @@
 							<div id="error_sql_result"></div>
 						</div>
 				    </div>
+				    <!-- Raw SQL tab end -->
+				    <!-- Tabs content end -->
 				</div>
+				<!-- Tabs block end -->
 			</div>
 		</div>
+		<!-- Right column end -->
 	</div>
 </div>
 {% endblock %}
@@ -83,7 +101,9 @@
 <!-- Main end -->
 {% endblock %}
 {% block footer %}
+<!-- Copyrights -->
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse h-100">
 	<p>Icons by <a href="https://icons8.com">icons8</a></p>
 </nav>
+<!-- Copyrights end -->
 {% endblock %}
