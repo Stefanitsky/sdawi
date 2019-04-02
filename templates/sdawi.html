@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block head %}
 <!-- Base -->
-<link rel="stylesheet" type="text/css" href="/static/css/sdawi.css">
+<link rel="stylesheet" type="text/css" href="/static/sdawi/sdawi.css">
 <!-- Base end -->
 <!-- Handsontable -->
 <link rel="stylesheet" type="text/css" href="static/node_modules/handsontable/dist/handsontable.full.min.css">
@@ -21,7 +21,7 @@
 	<div class="row">
 		<div class="col-sm-auto">
 			<div class="content">
-				<a href="/logout"><img src="/static/icons/shutdown.png"> Logout</a>
+				<a href="/logout"><img src="/static/sdawi/icons/shutdown.png"> Logout</a>
 				<div class="db_tree"></div>
 			</div>
 		</div>
@@ -69,7 +69,7 @@
 <script type="text/javascript" src="/static/node_modules/codemirror/mode/sql/sql.js"></script>
 <!-- CodeMirror end -->
 <!-- Data request -->
-<script type="text/javascript" src="/static/data_request/data_request.js"></script>
+<script type="text/javascript" src="/static/sdawi/data_request.js"></script>
 <!-- Data request end -->
 <!-- jsTree -->
 <script type="text/javascript" src="/static/node_modules/jstree/dist/jstree.min.js"></script>
@@ -78,8 +78,8 @@
 <script type="text/javascript" src="/static/node_modules/vanilla-js-tabs/dist/vanilla-js-tabs.min.js"></script>
 <!-- Vanilla JS Tabs end -->
 <!-- Main-->
-<script type="text/javascript" src="/static/browser/tabs.js"></script>
-<script type="text/javascript" src="/static/sdawi.js"></script>
+<script type="text/javascript" src="/static/sdawi/tabs.js"></script>
+<script type="text/javascript" src="/static/sdawi/sdawi.js"></script>
 <!-- Main end -->
 {% endblock %}
 {% block footer %}

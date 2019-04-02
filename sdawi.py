@@ -128,7 +128,7 @@ def build_db_tree(db_names, request_tables_list_for_db):
         'id': g.connection_args['host'],
         'parent': '#',
         'text': g.connection_args['host'],
-        'icon': '/static/icons/host.png',
+        'icon': '/static/sdawi/icons/host.png',
         'a_attr': {
             'type': 'host'
         }
@@ -139,7 +139,7 @@ def build_db_tree(db_names, request_tables_list_for_db):
             'id': db_name,
             'parent': g.connection_args['host'],
             'text': db_name,
-            'icon': '/static/icons/database.png',
+            'icon': '/static/sdawi/icons/database.png',
             'a_attr': {
                 'type': 'db'
             }
@@ -152,7 +152,7 @@ def build_db_tree(db_names, request_tables_list_for_db):
                     'id': table[0],
                     'parent': db_name,
                     'text': table[0],
-                    'icon': '/static/icons/table.png',
+                    'icon': '/static/sdawi/icons/table.png',
                     'a_attr': {
                         'type': 'table'
                     }
