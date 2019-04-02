@@ -9,6 +9,7 @@ through a web interface.
 You must have [pipenv](https://github.com/pypa/pipenv) installed
 ```bash
 git clone https://github.com/Stefanitsky/sdawi.git
+cd sdawi
 pipenv sync
 pipenv run python sdawi.py
 ```
