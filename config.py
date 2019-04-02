@@ -3,6 +3,9 @@ Configuration class, contains settings for running the app
 '''
 
 
+secret_key = b'your_secret_key'
+
+
 class BaseConfig:
 	'''
 	Base config class
