@@ -1,12 +1,21 @@
-// Request initialisation
+/*
+* Global values initialisation
+*/
+
+// Request
 var tree_requst = new TreeRequest();
 var table_data_request = new TableDataRequest();
 var raw_sql_request = new RawSQLRequest();
 var table_structure_request = new TableStructureRequest();
 var db_structure_request = new DatabaseStructureRequest();
-// Create tabs variable
+
+// Tabs
 var tabs = null;
-// SQL input area initialisation
+
+/*
+* Codemirror input area for raw SQL initialisation
+*/
+
 var sql_input_area = CodeMirror(document.getElementById('sql_input_area'), {
     value: "SELECT * FROM pg_database;",
     mode:  "sql",
@@ -14,6 +23,11 @@ var sql_input_area = CodeMirror(document.getElementById('sql_input_area'), {
     autoRefresh: true,
     lineWrapping: true
 });
+
+/*
+* Handsontable tables initialisation
+*/
+
 // Table for data display initialisation
 var table_data = new Handsontable(document.getElementById('table_data'), {
     rowHeaders: true,
@@ -27,6 +41,7 @@ var table_data = new Handsontable(document.getElementById('table_data'), {
     preventOverflow: 'horizontal',
     licenseKey: 'non-commercial-and-evaluation'
 });
+
 // Table for success sql request display initialisation
 var raw_sql_result = new Handsontable(document.getElementById('success_sql_result'), {
     rowHeaders: true,
@@ -40,6 +55,7 @@ var raw_sql_result = new Handsontable(document.getElementById('success_sql_resul
     height: 500,
     licenseKey: 'non-commercial-and-evaluation'
 });
+
 // Table for db/table structure display initialisation
 var structure_data = new Handsontable(document.getElementById('structure_data'), {
     rowHeaders: true,
@@ -53,7 +69,10 @@ var structure_data = new Handsontable(document.getElementById('structure_data'),
     preventOverflow: 'horizontal',
     licenseKey: 'non-commercial-and-evaluation'
 });
-// Initialisation on document ready (after page loads)
+
+/*
+* Initialisation on document ready (after page loads)
+*/
 $(document).ready(function() {
     // Init jsTree
     $('.db_tree').jstree(
@@ -87,6 +106,11 @@ $(document).ready(function() {
 	 	1000
 	);
 });
+
+/*
+* jsTree events.
+*/
+
 // Add events on activate node
 $('.db_tree').on('activate_node.jstree', function (e, data) {
     if (data.node.a_attr.type == 'host') {
@@ -98,7 +122,7 @@ $('.db_tree').on('activate_node.jstree', function (e, data) {
         db_structure_request.update_request_data(data.node.id);
         db_structure_request.request();
         database_tabs_show();
-
+        raw_sql_request.update_selected_db(data.node.id);
     }
     else if (data.node.a_attr.type == 'table') {
         var db_name = data.node.parent;
@@ -113,13 +137,19 @@ $('.db_tree').on('activate_node.jstree', function (e, data) {
         console.log('Unknown node type');
     }
 });
+
 // Add events on select node
 $('.db_tree').on('select_node.jstree', function(e, data) {
     data.instance.open_node(data.node);
 });
+
+/*
+* Raw SQL button submit event.
+*/
+
 // Add events on click of the submit query button
 $('#submit_query_button').click(function(event) {
-    query = sql_input_area.getDoc().getValue();
+    var query = sql_input_area.getDoc().getValue();
     raw_sql_request.update_query(query);
     raw_sql_request.request();
 });

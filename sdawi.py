@@ -1,20 +1,25 @@
 '''
 SDAWI - Simple Database Access Web Interface.
+Allows you to work with different types of databases
+through a web interface.
 '''
 
 from flask import Flask, render_template, request
 from flask import redirect, session, url_for, jsonify, g
 import config
-from db_connection_wrapper import DBConnectionWrapper
+from dbcw import DBConnectionWrapper
 
 app = Flask(__name__)
 
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-
+app.secret_key = config.secret_key
 
 
 @app.before_request
 def update_db_connection():
+    '''
+    Updates the database connection before each request,
+    saving data from the session to the global (g) object.
+    '''
     g.connection_args = dict()
     g.connection_args['engine'] = session.get('db_engine')
     g.connection_args['host'] = session.get('db_host')
@@ -23,6 +28,7 @@ def update_db_connection():
     g.connection_args['password'] = session.get('db_password')
     if g.connection_args['engine'] == 'postgres':
         g.connection_args['dbname'] = 'postgres'
+    # If all session data is NOT None, create new connection
     if all(g.connection_args.values()):
         g.connection = DBConnectionWrapper(**g.connection_args)
 
@@ -30,14 +36,18 @@ def update_db_connection():
 @app.route('/')
 def index():
     '''
-    Main route.
-    Returns authorization form or interface template depending on session.
+    Index route.
+    Returns page template (login or interface) depending on session data.
     '''
     if hasattr(g, 'connection'):
         if hasattr(g.connection, 'connection'):
             return render_template(
                 'sdawi.html', title='Simple Database Access Web Interface')
     else:
+        # Сreates a dictionary with an error message
+        # and information about whether the client has logged in before
+        # The dictionary is processed on the template side and will display
+        # an error only if it was and the client tried to log in earlier.
         error = {'display': session.get('tried_to_login', False)}
         if session.get('tried_to_login', False):
             error['msg'] = g.connection.connection_error
@@ -48,8 +58,8 @@ def index():
 def login():
     '''
     Login route.
-    Checks the entered data from the authorization form
-    and redirects to the main route.
+    Saves the received data from the login form to the session
+    and redirects to the index route.
     '''
     if request.method == 'POST':
         if request.form['db_engine'] == 'PostgreSQL':
@@ -69,7 +79,8 @@ def login():
 def logout():
     '''
     Logout route.
-    Deletes session data, closes db connection and redirects to the main route.
+    Deletes session data,
+    closes db connection and redirects to the index route.
     '''
     session.pop('db_engine', None)
     session.pop('db_host', None)
@@ -87,27 +98,43 @@ def logout():
 
 @app.route('/get_db_info', methods=['POST'])
 def get_db_info():
-    return get_response(request.get_json())
+    '''
+    Receives a request from a client in JSON format and returns
+    a response in JSON format, depending on the type of request.
 
+    To obtain the necessary data, a db_connection_wrapper is used to connect
+    to different types of databases, which has built-in methods for returning
+    the necessary data.
 
-def get_response(data_request):
+    Request types:
+        - db_tree:
+            Request database tree in JSON format that is read by the jsTree.
+            More about jsTree: https://www.jstree.com/
+        - table_data / raw_sql / table_structure / database_structure:
+            Request table rows and columns in JSON format
+            that is read by the Handsontable.
+            More about Handsontable: https://handsontable.com/
+        - None:
+            Returns an error.
+    '''
+    data_request = request.get_json()
     data_type = data_request.get('type', None)
+    # Calls update_db_connection()
+    # if the received request has the database name
     if data_request.get('db_name', None) is not None:
         session['db_name'] = data_request['db_name']
         update_db_connection()
+    # Check incoming request type and return response
     if data_type == 'db_tree':
-        db_list = g.connection.get_db_list()
-        # TODO: get tables list for each db in request
-        # tables_list = 
-        return build_db_tree(db_list,
-                             data_request['request_tables_list_for_db'])
+        return build_db_tree(data_request['request_tables_list_for_db'])
     elif data_type == 'table_data':
         columns, rows = g.connection.get_table_data(data_request['db_name'],
                                                     data_request['table_name'])
         return build_table_data(columns, rows)
     elif data_type == 'raw_sql':
         try:
-            columns, rows = g.connection.execute_query(data_request['query'])
+            columns, rows = g.connection.execute_query(
+                data_request['query'], data_request['selected_db'])
             return build_table_data(columns, rows)
         except Exception as e:
             return jsonify({'error': str(e)})
@@ -122,36 +149,47 @@ def get_response(data_request):
         return jsonify({'error': 'Unknown error'})
 
 
-def build_db_tree(db_names, request_tables_list_for_db):
+def build_db_tree(request_tables_list_for_db):
+    '''
+    Creates and returns database tree in JSON format
+    that is read by the jsTree.
+    More about jsTree: https://www.jstree.com/
+
+    Args:
+        request_tables_list_for_db (list): contains a list of databases
+        for which it's necessary to return the list of tables
+    '''
+    db_names = g.connection.get_db_list()
+    # Creates the main host node
     data = [{
         'id': g.connection_args['host'],
         'parent': '#',
         'text': g.connection_args['host'],
-        'icon': '/static/icons/host.png',
+        'icon': '/static/sdawi/icons/host.png',
         'a_attr': {
             'type': 'host'
         }
     }]
     for db_name in db_names:
-        # database row
+        # Creates database node
         row = {
             'id': db_name,
             'parent': g.connection_args['host'],
             'text': db_name,
-            'icon': '/static/icons/database.png',
+            'icon': '/static/sdawi/icons/database.png',
             'a_attr': {
                 'type': 'db'
             }
         }
         data.append(row)
-        # tables row(s)
+        # Creates table nodes if they were requested
         if db_name in request_tables_list_for_db:
             for table in g.connection.get_tables_list(db_name):
                 row = {
                     'id': table[0],
                     'parent': db_name,
                     'text': table[0],
-                    'icon': '/static/icons/table.png',
+                    'icon': '/static/sdawi/icons/table.png',
                     'a_attr': {
                         'type': 'table'
                     }
@@ -161,17 +199,28 @@ def build_db_tree(db_names, request_tables_list_for_db):
 
 
 def build_table_data(columns, rows):
+    '''
+    Creates and returns table rows and columns in JSON format
+    that is read by the Handsontable.
+    More about Handsontable: https://handsontable.com/
+
+    Args:
+        columns (list): list of columns for the table
+        rows (list): list of rows (tuples) for the table
+    '''
+    # If there are no rows in the table,
+    # then 1 row will be returned with the data that the table is empty
+    if len(rows) == 0:
+        rows = [(['Empty table'] for k in columns)]
     data = {
         'colHeaders': columns,
-        'columns': [{
-            'data': column_name
-        } for column_name in columns],
-        'rows': [{k: v
-                  for (k, v) in zip(columns, row)} for row in rows]
+        'columns': [{'data': column_name} for column_name in columns],
+        'rows': [{k: v for (k, v) in zip(columns, row)} for row in rows]
     }
     return jsonify(data)
 
 
 if __name__ == '__main__':
+    # Loads the selected config when the application starts
     app.config.from_object(config.DevelopmentConfig)
     app.run()
