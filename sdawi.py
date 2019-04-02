@@ -7,7 +7,7 @@ through a web interface.
 from flask import Flask, render_template, request
 from flask import redirect, session, url_for, jsonify, g
 import config
-from db_connection_wrapper import DBConnectionWrapper
+from dbcw import DBConnectionWrapper
 
 app = Flask(__name__)
 

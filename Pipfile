@@ -7,8 +7,7 @@ verify_ssl = true
 
 [packages]
 flask = "*"
-psycopg2 = "*"
-mysql-connector = "*"
+dbcw = "*"
 
 [requires]
 python_version = "3.7"
