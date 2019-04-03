@@ -3,6 +3,12 @@
 SDAWI allows you to work with different types of databases
 through a web interface.
 
+Supported database engines:
+- PostgreSQL
+- MySQL
+
+Support for various databases is provided by [DBCW](https://github.com/Stefanitsky/dbcw)
+
 ## Installation
 
 
