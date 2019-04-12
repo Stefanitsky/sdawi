@@ -25,11 +25,11 @@
         },
         "dbcw": {
             "hashes": [
-                "sha256:6ad289cdb823f41e4a6b6ba8b11640a0ebee0ef5c10222a1e23d6031a2b85ddd",
-                "sha256:a57b3bf40d4dcfcd9bd9cc45239c4f7eabeee3a43f668045fd980ead2ee59f04"
+                "sha256:9e49b42c67a67fc2ecc9e3577f8e4a3992388f98c21f6f58c880b7baf69e81bb",
+                "sha256:b47d50dfa520866bcd78972e86809dc4e50f80e6c8f5e8297ff88d90318ecaec"
             ],
             "index": "pypi",
-            "version": "==0.2.2"
+            "version": "==0.2.3"
         },
         "flask": {
             "hashes": [

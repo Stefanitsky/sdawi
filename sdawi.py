@@ -32,6 +32,9 @@ def update_db_connection():
     if all(g.connection_args.values()):
         g.connection = DBConnectionWrapper(**g.connection_args)
 
+@app.errorhandler(404)
+def page_not_found(error):
+    return redirect(url_for('index'))
 
 @app.route('/')
 def index():
