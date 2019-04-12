@@ -136,14 +136,14 @@ def get_db_info():
         return build_table_data(columns, rows)
     elif data_type == 'raw_sql':
         try:
+            selected_db = data_request.get('selected_db', None)
             columns, rows = g.connection.execute_query(
-                data_request['query'], data_request['selected_db'])
-            print(columns, rows, end='\n')
+                data_request['query'], selected_db)
             if columns is None and rows is not None:
                 return jsonify({'error': rows})
             elif columns is not None and rows is None:
                 return jsonify({'success': columns})
-            else:
+            elif columns is None and rows is None:
                 return jsonify({'error': 'Unknown error'})
             return build_table_data(columns, rows)
         except Exception as e:
