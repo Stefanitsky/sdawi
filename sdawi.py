@@ -135,6 +135,13 @@ def get_db_info():
         try:
             columns, rows = g.connection.execute_query(
                 data_request['query'], data_request['selected_db'])
+            print(columns, rows, end='\n')
+            if columns is None and rows is not None:
+                return jsonify({'error': rows})
+            elif columns is not None and rows is None:
+                return jsonify({'success': columns})
+            else:
+                return jsonify({'error': 'Unknown error'})
             return build_table_data(columns, rows)
         except Exception as e:
             return jsonify({'error': str(e)})

@@ -43,7 +43,7 @@ var table_data = new Handsontable(document.getElementById('table_data'), {
 });
 
 // Table for success sql request display initialisation
-var raw_sql_result = new Handsontable(document.getElementById('success_sql_result'), {
+var raw_sql_result = new Handsontable(document.getElementById('sql_data'), {
     rowHeaders: true,
     colHeaders: true,
     manualRowResize: true,
@@ -102,7 +102,7 @@ $(document).ready(function() {
     // Set interval to update every 1 sec
 	setInterval(function() {
 	 		tree_requst.request();
-	 	}, 
+	 	},
 	 	1000
 	);
 });
