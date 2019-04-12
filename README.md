@@ -5,7 +5,7 @@ through a web interface.
 
 Supported database engines:
 - PostgreSQL
-- MySQL
+- MySQL / MariaDB
 
 Support for various databases is provided by [DBCW](https://github.com/Stefanitsky/dbcw)
 
