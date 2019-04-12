@@ -12,8 +12,8 @@ var sql_tab = $($("#tabs ul").find("li")[3]);
 
 // Returns the Raw SQL tab to its original state
 function load_sql_tab() {
-    $('#error_sql_result').hide();
-    $('#success_sql_result').hide();
+    $('#sql_result').hide();
+    $('#sql_data').hide();
     sql_tab.show();
 }
 
