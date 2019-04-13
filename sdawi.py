@@ -26,15 +26,19 @@ def update_db_connection():
     g.connection_args['port'] = session.get('db_port')
     g.connection_args['user'] = session.get('db_user')
     g.connection_args['password'] = session.get('db_password')
-    if g.connection_args['engine'] == 'postgres':
-        g.connection_args['dbname'] = 'postgres'
     # If all session data is NOT None, create new connection
     if all(g.connection_args.values()):
         g.connection = DBConnectionWrapper(**g.connection_args)
 
+
 @app.errorhandler(404)
 def page_not_found(error):
+    '''
+    Page not found (404) route.
+    Redirects to the index route if requested page not found.
+    '''
     return redirect(url_for('index'))
+
 
 @app.route('/')
 def index():
@@ -65,11 +69,7 @@ def login():
     and redirects to the index route.
     '''
     if request.method == 'POST':
-        if request.form['db_engine'] == 'PostgreSQL':
-            session['db_engine'] = 'postgres'
-            session['db_name'] = 'postgres'
-        elif request.form['db_engine'] == 'MySQL':
-            session['db_engine'] = 'mysql'
+        session['db_engine'] = request.form['db_engine']
         session['db_host'] = request.form['db_host']
         session['db_port'] = request.form['db_port']
         session['db_user'] = request.form['db_user']
@@ -90,7 +90,6 @@ def logout():
     session.pop('db_port', None)
     session.pop('db_user', None)
     session.pop('db_password', None)
-    session.pop('db_name', None)
     session.pop('tried_to_login', False)
     g.connection_args = dict()
     if hasattr(g, 'connection'):
@@ -122,11 +121,6 @@ def get_db_info():
     '''
     data_request = request.get_json()
     data_type = data_request.get('type', None)
-    # Calls update_db_connection()
-    # if the received request has the database name
-    if data_request.get('db_name', None) is not None:
-        session['db_name'] = data_request['db_name']
-        update_db_connection()
     # Check incoming request type and return response
     if data_type == 'db_tree':
         return build_db_tree(data_request['request_tables_list_for_db'])
