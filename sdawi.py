@@ -28,7 +28,11 @@ def update_db_connection():
     g.connection_args['password'] = session.get('db_password')
     # If all session data is NOT None, create new connection
     if all(g.connection_args.values()):
-        g.connection = DBConnectionWrapper(**g.connection_args)
+        if session.get('tried_to_login', False):
+            try:
+                g.connection = DBConnectionWrapper(**g.connection_args)
+            except Exception as exception:
+                g.connection_error = exception
 
 
 @app.errorhandler(404)
@@ -51,13 +55,8 @@ def index():
             return render_template(
                 'sdawi.html', title='Simple Database Access Web Interface')
     else:
-        # Сreates a dictionary with an error message
-        # and information about whether the client has logged in before
-        # The dictionary is processed on the template side and will display
-        # an error only if it was and the client tried to log in earlier.
-        error = {'display': session.get('tried_to_login', False)}
-        if session.get('tried_to_login', False):
-            error['msg'] = g.connection.connection_error
+        error = g.connection_error if session.get(
+                                            'tried_to_login') else None
         return render_template('login.html', title='Login', error=error)
 
 
