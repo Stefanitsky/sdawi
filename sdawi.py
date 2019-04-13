@@ -30,6 +30,7 @@ def update_db_connection():
     if all(g.connection_args.values()):
         if session.get('tried_to_login', False):
             try:
+                print(g.connection_args)
                 g.connection = DBConnectionWrapper(**g.connection_args)
             except Exception as exception:
                 g.connection_error = exception
@@ -50,8 +51,8 @@ def index():
     Index route.
     Returns page template (login or interface) depending on session data.
     '''
-    if hasattr(g, 'connection'):
-        if hasattr(g.connection, 'connection'):
+    if g.get('connection', None) is not None:
+        if g.connection.connection is not None:
             return render_template(
                 'sdawi.html', title='Simple Database Access Web Interface')
     else:

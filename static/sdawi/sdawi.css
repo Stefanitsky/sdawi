@@ -2,10 +2,19 @@ html {
     height: 100vh;
 }
 
+html, body {
+    overflow: hidden;
+}
+
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+.left-column {
+    overflow-x: auto;
+    overflow-y: auto;
 }
 
 .row, .content, .js-tabs__content {

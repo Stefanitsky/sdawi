@@ -70,9 +70,9 @@
 // Сhanges the standard port in the input field of the port
 // depending on the selected engine
 $('select[name="db_engine"]').on('change',function() {
-    if ($(this).val() == 'PostgreSQL') {
+    if ($(this).val() == 'postgres') {
         $('input[name="db_port"]').val('5432');
-    } else if ($(this).val() == 'MySQL') {
+    } else if ($(this).val() == 'mysql') {
         $('input[name="db_port"]').val('3306');
     }
 });

@@ -28,47 +28,29 @@ var sql_input_area = CodeMirror(document.getElementById('sql_input_area'), {
 * Handsontable tables initialisation
 */
 
-// Table for data display initialisation
-var table_data = new Handsontable(document.getElementById('table_data'), {
+var default_handsontable_settings = {
     rowHeaders: true,
     colHeaders: true,
-    manualRowResize: true,
-    manualColumnResize: true,
-    contextMenu: true,
-    filters: true,
-    dropdownMenu: true,
-    stretchH: 'all',
-    preventOverflow: 'horizontal',
-    licenseKey: 'non-commercial-and-evaluation'
-});
-
-// Table for success sql request display initialisation
-var raw_sql_result = new Handsontable(document.getElementById('sql_data'), {
-    rowHeaders: true,
-    colHeaders: true,
-    manualRowResize: true,
-    manualColumnResize: true,
-    filters: true,
-    dropdownMenu: true,
     stretchH: 'all',
     preventOverflow: 'horizontal',
     height: 500,
     licenseKey: 'non-commercial-and-evaluation'
-});
+}
+
+// Table for data display initialisation
+var table_data = new Handsontable(document.getElementById('table_data'),
+     default_handsontable_settings
+);
+
+// Table for success sql request display initialisation
+var raw_sql_result = new Handsontable(document.getElementById('sql_data'),
+     default_handsontable_settings
+);
 
 // Table for db/table structure display initialisation
-var structure_data = new Handsontable(document.getElementById('structure_data'), {
-    rowHeaders: true,
-    colHeaders: true,
-    manualRowResize: true,
-    manualColumnResize: true,
-    contextMenu: true,
-    filters: true,
-    dropdownMenu: true,
-    stretchH: 'all',
-    preventOverflow: 'horizontal',
-    licenseKey: 'non-commercial-and-evaluation'
-});
+var structure_data = new Handsontable(document.getElementById('structure_data'),
+     default_handsontable_settings
+);
 
 /*
 * Initialisation on document ready (after page loads)
