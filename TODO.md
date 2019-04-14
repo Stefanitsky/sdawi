@@ -7,3 +7,8 @@ Interface:
 - clean sessions on restart
 - Copyrights:
 - default queries depending on engine
+
+Installation:
+- Doker
+- Heroku
+- script / python setup module

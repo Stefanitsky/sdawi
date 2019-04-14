@@ -22,7 +22,16 @@ pipenv run python sdawi.py
 
 ## Screenshots
 
-[GoogleDrive folder with screenshots](https://drive.google.com/open?id=17GglDZsdPPz7ULGAmiv62bQ4IXsRxmxr)
+| Description   | Screenshots   |
+| ------------- | ------------- |
+| Login page    | ![Login page](https://raw.githubusercontent.com/Stefanitsky/sdawi/docs/images/v0.2/login_page.png) |
+| Welcome page  | ![Welcome page](https://raw.githubusercontent.com/Stefanitsky/sdawi/docs/images/v0.2/welcome_page.png) |
+| Database page | ![Database page](https://raw.githubusercontent.com/Stefanitsky/sdawi/docs/images/v0.2/database_structure_page.png) |
+| Table page    | Structure tab:  ![Structure tab](https://raw.githubusercontent.com/Stefanitsky/sdawi/docs/images/v0.2/table_structure_page.png)  Table data tab:  ![Table data tab](https://raw.githubusercontent.com/Stefanitsky/sdawi/docs/images/v0.2/table_data_page.png) |
+| SQL page      | Default: ![SQL page](https://raw.githubusercontent.com/Stefanitsky/sdawi/docs/images/v0.2/sql_page.png)  Success query: ![Success query](https://raw.githubusercontent.com/Stefanitsky/sdawi/docs/images/v0.2/sql_page_with_success_query.png)  Fail query: ![Success query](https://raw.githubusercontent.com/Stefanitsky/sdawi/docs/images/v0.2/sql_page_with_fail_query.png)|
+
+These screenshots are from version 0.2  
+[More screenshots in the docs branch](https://github.com/Stefanitsky/sdawi/tree/docs)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
