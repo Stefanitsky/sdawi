@@ -15,6 +15,7 @@ function load_sql_tab() {
     $('#sql_result').hide();
     $('#sql_data').hide();
     sql_tab.show();
+    resize_sql_result_table();
 }
 
 // Hides unnecessary tabs on the main page when the user is logged in
@@ -44,7 +45,19 @@ function table_tabs_show() {
     table_data_tab.tab('show');
 }
 
+/*
+*  Tabs click events
+*/
+
 // Returns the Raw SQL tab to its original state when it was clicked
 sql_tab.click(function(event) {
     load_sql_tab();
+});
+// Structure tab click event
+structure_tab.click(function(event) {
+    resize_structure_table();
+});
+// Table data tab click event
+table_data_tab.click(function(event) {
+    resize_data_table();
 });

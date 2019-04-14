@@ -126,25 +126,44 @@ $('#submit_query_button').click(function(event) {
     var query = sql_input_area.getDoc().getValue();
     raw_sql_request.update_query(query);
     raw_sql_request.request();
+    resize_sql_result_table();
 });
-
 
 /*
 *  Handsontable height resize
 */
 
-function resize_table(table) {
+// Resize selected table
+function resize_table(table, height_offset = 0) {
+    // Default offset is equal to tab size
+    var default_height_offset = $("#nav-tabContent").offset().top + 10;
     table.updateSettings({
-        height: $(window).height() - 50
+        height: $(window).height() - default_height_offset - height_offset
     });
 }
-
-function resize_all_tables() {
-    resize_table(table_data);
-    resize_table(structure_data);
-    resize_table(raw_sql_result);
+// Resize SQL result table
+function resize_sql_result_table() {
+    var sql_tab_height_offset = $("#sql_input_area").height() +
+        $("#sql_management_div").height();
+    resize_table(raw_sql_result, sql_tab_height_offset);
+    console.log('SQL RESIZE');
+    console.log(sql_tab_height_offset);
 }
-
+// Resize structure table
+function resize_structure_table() {
+    resize_table(structure_data);
+}
+// Resize data table
+function resize_data_table() {
+    resize_table(table_data);
+}
+// Resize all tables
+function resize_all_tables() {
+    resize_structure_table();
+    resize_data_table();
+    resize_sql_result_table();
+}
+// Resize on window resize
 $(window).resize(function() {
     resize_all_tables();
 });
