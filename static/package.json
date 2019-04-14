@@ -9,7 +9,6 @@
     "bootstrap": "^4.3.1",
     "codemirror": "^5.45.0",
     "handsontable": "^7.0.0",
-    "jstree": "^3.3.7",
-    "vanilla-js-tabs": "https://github.com/zoltantothcom/vanilla-js-tabs.git"
+    "jstree": "^3.3.7"
   }
 }
