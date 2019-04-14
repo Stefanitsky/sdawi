@@ -9,9 +9,6 @@ var raw_sql_request = new RawSQLRequest();
 var table_structure_request = new TableStructureRequest();
 var db_structure_request = new DatabaseStructureRequest();
 
-// Tabs
-var tabs = null;
-
 /*
 * Codemirror input area for raw SQL initialisation
 */
@@ -33,7 +30,6 @@ var default_handsontable_settings = {
     colHeaders: true,
     stretchH: 'all',
     preventOverflow: 'horizontal',
-    height: 500,
     licenseKey: 'non-commercial-and-evaluation'
 }
 
@@ -41,14 +37,12 @@ var default_handsontable_settings = {
 var table_data = new Handsontable(document.getElementById('table_data'),
      default_handsontable_settings
 );
-
-// Table for success sql request display initialisation
-var raw_sql_result = new Handsontable(document.getElementById('sql_data'),
-     default_handsontable_settings
-);
-
 // Table for db/table structure display initialisation
 var structure_data = new Handsontable(document.getElementById('structure_data'),
+default_handsontable_settings
+);
+// Table for success sql request display initialisation
+var raw_sql_result = new Handsontable(document.getElementById('sql_data'),
      default_handsontable_settings
 );
 
@@ -73,11 +67,9 @@ $(document).ready(function() {
         },
         //'plugins' : ['types']
     });
-    // Init tabs
-    tabs = new Tabs({
-        elem: "tabs",
-        open: 0
-    });
+    // Resize all tables
+    resize_all_tables();
+    // Show main tabs
     main_tabs_show();
     // Request tree data from the server
     tree_requst.request();
@@ -103,8 +95,8 @@ $('.db_tree').on('activate_node.jstree', function (e, data) {
         tree_requst.request();
         db_structure_request.update_request_data(data.node.id);
         db_structure_request.request();
-        database_tabs_show();
         raw_sql_request.update_selected_db(data.node.id);
+        database_tabs_show();
     }
     else if (data.node.a_attr.type == 'table') {
         var db_name = data.node.parent;
@@ -134,4 +126,25 @@ $('#submit_query_button').click(function(event) {
     var query = sql_input_area.getDoc().getValue();
     raw_sql_request.update_query(query);
     raw_sql_request.request();
+});
+
+
+/*
+*  Handsontable height resize
+*/
+
+function resize_table(table) {
+    table.updateSettings({
+        height: $(window).height() - 50
+    });
+}
+
+function resize_all_tables() {
+    resize_table(table_data);
+    resize_table(structure_data);
+    resize_table(raw_sql_result);
+}
+
+$(window).resize(function() {
+    resize_all_tables();
 });
