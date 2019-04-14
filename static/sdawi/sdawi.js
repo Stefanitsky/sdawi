@@ -70,12 +70,14 @@ $(document).ready(function() {
         },
         //'plugins' : ['types']
     });
-    // Resize all tables
-    resize_all_tables();
     // Show main tabs
     main_tabs_show();
     // Request tree data from the server
     tree_requst.request();
+    // Resize all tables
+    resize_all_tables();
+    // Resize database tree
+    resize_db_tree();
     // Set interval to update every 1 sec
 	setInterval(function() {
 	 		tree_requst.request();
@@ -139,7 +141,7 @@ $('#submit_query_button').click(function(event) {
 // Resize selected table
 function resize_table(table, height_offset = 0) {
     // Default offset is equal to tab size
-    var default_height_offset = $("#nav-tabContent").offset().top + 10;
+    var default_height_offset = $("#nav-tabContent").offset().top + 20;
     table.updateSettings({
         height: $(window).height() - default_height_offset - height_offset
     });
@@ -164,7 +166,23 @@ function resize_all_tables() {
     resize_data_table();
     resize_sql_result_table();
 }
-// Resize on window resize
+
+/*
+*  Database tree (jsTree) height resize
+*/
+
+function resize_db_tree() {
+    var new_height = $(window).height() - 31;
+    new_height -= $('.main_options').height();
+    $('.db_tree').height(new_height);
+}
+
+/*
+*  Events on window resize
+*/
+
 $(window).resize(function() {
+    // TODO: separate resize for each tab
     resize_all_tables();
+    resize_db_tree();
 });
