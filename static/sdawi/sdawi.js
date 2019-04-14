@@ -13,6 +13,7 @@ var db_structure_request = new DatabaseStructureRequest();
 * Codemirror input area for raw SQL initialisation
 */
 
+// Initialisation
 var sql_input_area = CodeMirror(document.getElementById('sql_input_area'), {
     value: "SELECT * FROM pg_database;",
     mode:  "sql",
@@ -20,6 +21,8 @@ var sql_input_area = CodeMirror(document.getElementById('sql_input_area'), {
     autoRefresh: true,
     lineWrapping: true
 });
+// Change height to 150px
+sql_input_area.setSize(null, 150);
 
 /*
 * Handsontable tables initialisation
@@ -146,8 +149,6 @@ function resize_sql_result_table() {
     var sql_tab_height_offset = $("#sql_input_area").height() +
         $("#sql_management_div").height();
     resize_table(raw_sql_result, sql_tab_height_offset);
-    console.log('SQL RESIZE');
-    console.log(sql_tab_height_offset);
 }
 // Resize structure table
 function resize_structure_table() {

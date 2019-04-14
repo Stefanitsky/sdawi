@@ -12,9 +12,9 @@ var sql_tab = $('#browser-tabs a[id="nav-sql-tab"]');
 
 // Returns the Raw SQL tab to its original state
 function load_sql_tab() {
+    sql_tab.show();
     $('#sql_result').hide();
     $('#sql_data').hide();
-    sql_tab.show();
     resize_sql_result_table();
 }
 
@@ -49,9 +49,13 @@ function table_tabs_show() {
 *  Tabs click events
 */
 
-// Returns the Raw SQL tab to its original state when it was clicked
+// SQL tab click event
 sql_tab.click(function(event) {
     load_sql_tab();
+});
+// SQL tab event after tab is loaded (fixes Codemirror view bugs)
+sql_tab.on('shown.bs.tab', function (e) {
+    sql_input_area.refresh();
 });
 // Structure tab click event
 structure_tab.click(function(event) {
