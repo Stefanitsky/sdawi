@@ -30,7 +30,6 @@ def update_db_connection():
     if all(g.connection_args.values()):
         if session.get('tried_to_login', False):
             try:
-                print(g.connection_args)
                 g.connection = DBConnectionWrapper(**g.connection_args)
             except Exception as exception:
                 g.connection_error = exception
