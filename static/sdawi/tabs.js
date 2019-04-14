@@ -53,10 +53,6 @@ function table_tabs_show() {
 sql_tab.click(function(event) {
     load_sql_tab();
 });
-// SQL tab event after tab is loaded (fixes Codemirror view bugs)
-sql_tab.on('shown.bs.tab', function (e) {
-    sql_input_area.refresh();
-});
 // Structure tab click event
 structure_tab.click(function(event) {
     resize_structure_table();
@@ -64,4 +60,21 @@ structure_tab.click(function(event) {
 // Table data tab click event
 table_data_tab.click(function(event) {
     resize_data_table();
+});
+
+/*
+*  Tabs after load events
+*/
+
+// SQL tab afterload event
+sql_tab.on('shown.bs.tab', function (e) {
+    sql_input_area.refresh();
+});
+// Structure tab afterload event
+structure_tab.on('shown.bs.tab', function (e) {
+    structure_data.render();
+});
+// Table data tab afterload event
+table_data_tab.on('shown.bs.tab', function (e) {
+    table_data.render();
 });
