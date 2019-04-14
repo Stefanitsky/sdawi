@@ -1,39 +1,56 @@
-html {
-    height: 100vh;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.row, .content, .js-tabs__content {
+html, body {
     height: 100%;
-    margin-bottom: 20px;
 }
 
 .container-fluid {
-    flex: 1;
-    margin-top: 15px;
+    min-height: 100%;
+    height: 100%;
+    padding: 5px;
 }
 
-footer {
-    height: 6vh;
+.content {
+    height: 100%;
 }
 
-footer p {
-    margin: auto;
+.row {
+    height: 100%;
 }
 
-.js-tabs {
-    margin: 0px !important;
+.main_options {
+    padding: 8px 0;
 }
 
-#sql_input_area {
-    border: 1px solid #d5d5d5;
+.db_tree, #nav-tabContent, .main_options_block {
+    border: 1px solid #dee2e6;
 }
 
-#submit_query_button {
-    margin: 5px 0px;
+.main_options_block {
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    height: 42px;
+}
+
+.db_tree {
+    overflow: auto;
+}
+
+#nav-tabContent {
+    padding: 5px;
+}
+
+.db_tree, #nav-tabContent {
+    border-top: none;
+    border-bottom-left-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+}
+
+/* 10px Gutter: https://code.askmein.com/change-default-gutter-width-bootstrap/ */
+.gutter-10.row {
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+.gutter-10 > [class^="col-"], .gutter-10 > [class^=" col-"] {
+    padding-right: 5px;
+    padding-left: 5px;
 }

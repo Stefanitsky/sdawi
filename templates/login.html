@@ -18,8 +18,8 @@
         <div class="form-group">
             <label for="db_engine">Database engine</label>
             <select class="form-control" id="db_engine" name="db_engine">
-                <option>PostgreSQL</option>
-                <option>MySQL</option>
+                <option value="postgres">PostgreSQL</option>
+                <option value="mysql">MySQL</option>
             </select>
         </div>
         <!-- Engine select end -->
@@ -55,9 +55,9 @@
         <div class="clearfix">
         </div>
         <!-- Error alert -->
-        {% if error.display %}
+        {% if error is not none %}
         <div class="alert alert-danger" role="alert">
-            {{ error.msg }}
+            {{ error }}
         </div>
         <!-- Error alert end -->
         {% endif %}
@@ -70,9 +70,9 @@
 // Сhanges the standard port in the input field of the port
 // depending on the selected engine
 $('select[name="db_engine"]').on('change',function() {
-    if ($(this).val() == 'PostgreSQL') {
+    if ($(this).val() == 'postgres') {
         $('input[name="db_port"]').val('5432');
-    } else if ($(this).val() == 'MySQL') {
+    } else if ($(this).val() == 'mysql') {
         $('input[name="db_port"]').val('3306');
     }
 });

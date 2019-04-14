@@ -104,10 +104,6 @@ tiny-emitter@^2.0.1:
   resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
   integrity sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
 
-"vanilla-js-tabs@https://github.com/zoltantothcom/vanilla-js-tabs.git":
-  version "1.0.0"
-  resolved "https://github.com/zoltantothcom/vanilla-js-tabs.git#b8426a993a59e37aa02527b59ddeff79c33f6fc6"
-
 voc@:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/voc/-/voc-1.1.0.tgz#d1a08aeff66646bf17cdba2e47c935a7a9b0218b"
