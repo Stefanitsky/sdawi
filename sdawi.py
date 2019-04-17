@@ -226,4 +226,4 @@ def build_table_data(columns, rows):
 if __name__ == '__main__':
     # Loads the selected config when the application starts
     app.config.from_object(config.DevelopmentConfig)
-    app.run()
+    app.run(host='0.0.0.0')
