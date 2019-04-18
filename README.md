@@ -60,8 +60,24 @@ docker run --network host sdawi
 These screenshots are from version 0.2  
 [More screenshots in the docs branch](https://github.com/Stefanitsky/sdawi/tree/docs)
 
+## Tests
+
+#### Autotests
+
+Work in progress
+
+#### Manual tests
+
+Via [docker-compose](https://docs.docker.com/compose/install/)
+```bash
+git clone https://github.com/Stefanitsky/sdawi.git
+cd sdawi/tests
+docker-compose up
+```
+
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome.
+[TODO](https://github.com/Stefanitsky/sdawi/blob/master/TODO.md)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
