@@ -20,4 +20,4 @@ EXPOSE 5000
 
 WORKDIR /opt/sdawi-${SDAWI_VERSION}
 
-ENTRYPOINT ["pipenv", "run", "python", "sdawi.py"]
+ENTRYPOINT ["python", "sdawi.py"]
