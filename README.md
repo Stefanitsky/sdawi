@@ -9,15 +9,42 @@ Supported database engines:
 
 Support for various databases is provided by [DBCW](https://github.com/Stefanitsky/dbcw)
 
-## Installation
+## Installation and run
 
+### pip
 
+```bash
+git clone https://github.com/Stefanitsky/sdawi.git
+cd sdawi
+pip install -r requirements.txt
+python run sdawi.py
+```
+
+### pipenv
 You must have [pipenv](https://github.com/pypa/pipenv) installed
 ```bash
 git clone https://github.com/Stefanitsky/sdawi.git
 cd sdawi
 pipenv sync
 pipenv run python sdawi.py
+```
+
+### Docker
+
+You must have [Docker](https://docs.docker.com/install/) installed
+
+##### Download via [DockerHub](https://hub.docker.com/r/stefanitsky/sdawi)
+```bash
+docker pull stefanitsky/sdawi
+docker run --network host stefanitsky/sdawi
+```
+
+##### Or build from [source](https://github.com/Stefanitsky/sdawi/blob/master/Dockerfile)
+```bash
+git clone https://github.com/Stefanitsky/sdawi.git
+cd sdawi
+docker build -t sdawi .
+docker run --network host sdawi
 ```
 
 ## Screenshots
