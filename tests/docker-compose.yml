@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+    postgres:
+        image: postgres:alpine
+        network_mode: host
+        environment:
+            - POSTGRES_USER=${DB_USER}
+            - POSTGRES_PASSWORD=${DB_PASSWORD}
+        ports:
+            - "5432:5432"
+    mariadb:
+        image: yobasystems/alpine-mariadb
+        network_mode: host
+        environment:
+            - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+        ports:
+            - "3306:3306"
+    sdawi:
+        network_mode: host
+        image: stefanitsky/sdawi:latest
+        ports:
+            - "5000:5000"
+        depends_on:
+            - postgres
+            - mariadb
