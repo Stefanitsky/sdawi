@@ -7,6 +7,7 @@ through a web interface.
 from flask import Flask, render_template, request
 from flask import redirect, session, url_for, jsonify, g
 import config
+import json
 from dbcw import DBConnectionWrapper
 
 app = Flask(__name__)
@@ -44,20 +45,43 @@ def page_not_found(error):
     return redirect(url_for('index'))
 
 
+@app.route('/set_language/<language_code>')
+def set_language(language_code):
+    '''
+    Sets language for interface localisation
+    '''
+    session['language'] = language_code
+    return redirect(url_for('index'))
+
+
 @app.route('/')
 def index():
     '''
     Index route.
     Returns page template (login or interface) depending on session data.
     '''
+    # Get localistaion
+    session_language = session.get('language', 'en')
+    language_code = session_language if session_language in app.config[
+        'AVAILABLE_LANGUAGES'] else 'en'
+    localisation_path = 'localisation/{}.json'.format(language_code)
+    with open(localisation_path) as file:
+        locale_dict = json.load(file)
+    # Return page template
     if g.get('connection', None) is not None:
         if g.connection.connection is not None:
             return render_template(
-                'sdawi.html', title='Simple Database Access Web Interface')
+                'sdawi.html',
+                localisation=locale_dict['sdawi'],
+                available_languages=app.config['AVAILABLE_LANGUAGES'],
+                current_language=language_code)
     else:
         error = g.connection_error if session.get(
-                                            'tried_to_login') else None
-        return render_template('login.html', title='Login', error=error)
+            'tried_to_login') else None
+        return render_template(
+            'login.html',
+            localisation=locale_dict['login'],
+            error=error)
 
 
 @app.route('/login', methods=['POST'])
@@ -124,8 +148,8 @@ def get_db_info():
     if data_type == 'db_tree':
         return build_db_tree(data_request['request_tables_list_for_db'])
     elif data_type == 'table_data':
-        columns, rows = g.connection.get_table_data(data_request['db_name'],
-                                                    data_request['table_name'])
+        columns, rows = g.connection.get_table_data(
+            data_request['db_name'], data_request['table_name'])
         return build_table_data(columns, rows)
     elif data_type == 'raw_sql':
         try:
@@ -146,7 +170,8 @@ def get_db_info():
             data_request['db_name'], data_request['table_name'])
         return build_table_data(columns, rows)
     elif data_type == 'database_structure':
-        columns, rows = g.connection.get_db_structure(data_request['db_name'])
+        columns, rows = g.connection.get_db_structure(
+            data_request['db_name'])
         return build_table_data(columns, rows)
     else:
         return jsonify({'error': 'Unknown error'})
@@ -217,8 +242,11 @@ def build_table_data(columns, rows):
         rows = [(['Empty table'] for k in columns)]
     data = {
         'colHeaders': columns,
-        'columns': [{'data': column_name} for column_name in columns],
-        'rows': [{k: v for (k, v) in zip(columns, row)} for row in rows]
+        'columns': [{
+            'data': column_name
+        } for column_name in columns],
+        'rows': [{k: v
+                  for (k, v) in zip(columns, row)} for row in rows]
     }
     return jsonify(data)
 
@@ -226,4 +254,4 @@ def build_table_data(columns, rows):
 if __name__ == '__main__':
     # Loads the selected config when the application starts
     app.config.from_object(config.DevelopmentConfig)
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=5000)

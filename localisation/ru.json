@@ -1,0 +1,39 @@
+{
+    "login": {
+        "title": "Форма авторизации",
+        "db_engine": "Выбор СУБД",
+        "host": "Сервер",
+        "port": "Порт",
+        "username": "Имя пользователя",
+        "password": "Пароль",
+        "login": "Авторизация"
+    },
+    "sdawi": {
+        "title": "Simple Database Access Web Interface",
+        "logout_button": "Выйти",
+        "welcome_tab": {
+            "title": "Добро пожаловать",
+            "info_card": {
+                "title": "Информация",
+                "text": "Simple Database Access Web Interface (SDAWI) - это инструмент с открытым исходным кодом для администрирования и менеджмента различных баз данных с помощью веб-интерфейса."
+            },
+            "source_code_card": {
+                "title": "Открытый исходный код",
+                "text": "Присоединяйтесь сейчас и помогите развитию проекта."
+            },
+            "copyrights": {
+                "icons": "Изображения взяты с "
+            }
+        },
+        "structure_tab": {
+            "title": "Структура"
+        },
+        "data_tab": {
+            "title": "Данные"
+        },
+        "sql_tab": {
+            "title": "SQL",
+            "submit_button": "Выполнить запрос"
+        }
+    }
+}

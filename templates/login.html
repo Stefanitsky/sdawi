@@ -16,7 +16,7 @@
     <form action="/login" method="post">
         <!-- Engine select -->
         <div class="form-group">
-            <label for="db_engine">Database engine</label>
+            <label for="db_engine">{{ localisation.db_engine }}</label>
             <select class="form-control" id="db_engine" name="db_engine">
                 <option value="postgres">PostgreSQL</option>
                 <option value="mysql">MySQL</option>
@@ -27,11 +27,11 @@
         <div class="form-group">
             <div class="form-row">
                 <div class="col-8">
-                    <label for="host">Server</label>
+                    <label for="host">{{ localisation.host }}</label>
                     <input type="text" id="host" name="db_host" class="form-control" placeholder="localhost" value="localhost" required="required">
                 </div>
                 <div class="col">
-                    <label for="port">Port</label>
+                    <label for="port">{{ localisation.port }}</label>
                     <input type="text" id="port" name="db_port" class="form-control" placeholder="port" value="5432">
                 </div>
             </div>
@@ -39,17 +39,17 @@
         <!-- Host and port field end -->
         <!-- User field -->
         <div class="form-group">
-            <input type="text" name='db_user' class="form-control" placeholder="Username" required="required">
+            <input type="text" name='db_user' class="form-control" placeholder="{{ localisation.username }}" required="required">
         </div>
         <!-- User field end -->
         <!-- Password field -->
         <div class="form-group">
-            <input type="password" name='db_password' class="form-control" placeholder="Password" required="required">
+            <input type="password" name='db_password' class="form-control" placeholder="{{ localisation.password }}" required="required">
         </div>
         <!-- Password field end -->
         <!-- Login button -->
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <button type="submit" class="btn btn-primary btn-block">{{ localisation.login }}</button>
         </div>
         <!-- Login button end -->
         <div class="clearfix">

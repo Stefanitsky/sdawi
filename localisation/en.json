@@ -1,0 +1,39 @@
+{
+    "login": {
+        "title": "Login",
+        "db_engine": "Database engine",
+        "host": "Host",
+        "port": "Port",
+        "username": "Username",
+        "password": "Password",
+        "login": "Login"
+    },
+    "sdawi": {
+        "title": "Simple Database Access Web Interface",
+        "logout_button": "Logout",
+        "welcome_tab": {
+            "title": "Welcome",
+            "info_card": {
+                "title": "Info",
+                "text": "Simple Database Access Web Interface (SDAWI) is an open source administration and management tool that allows you to work with different types of databases through a web interface."
+            },
+            "source_code_card": {
+                "title": "Source Code",
+                "text": "Join the development and help develop the project"
+            },
+            "copyrights": {
+                "icons": "Icons by"
+            }
+        },
+        "structure_tab": {
+            "title": "Structure"
+        },
+        "data_tab": {
+            "title": "Data"
+        },
+        "sql_tab": {
+            "title": "SQL",
+            "submit_button": "Submit query"
+        }
+    }
+}
