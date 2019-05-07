@@ -61,17 +61,20 @@ def index():
     Returns page template (login or interface) depending on session data.
     '''
     # Get localistaion
-    language_code = session.get('language', 'en')
-    localisation_path = 'localisation/{}.json'.format(
-        language_code if language_code in
-        app.config['AVAILABLE_LANGUAGES'] else 'en')
+    session_language = session.get('language', 'en')
+    language_code = session_language if session_language in app.config[
+        'AVAILABLE_LANGUAGES'] else 'en'
+    localisation_path = 'localisation/{}.json'.format(language_code)
     with open(localisation_path) as file:
         locale_dict = json.load(file)
     # Return page template
     if g.get('connection', None) is not None:
         if g.connection.connection is not None:
             return render_template(
-                'sdawi.html', localisation=locale_dict['sdawi'])
+                'sdawi.html',
+                localisation=locale_dict['sdawi'],
+                available_languages=app.config['AVAILABLE_LANGUAGES'],
+                current_language=language_code)
     else:
         error = g.connection_error if session.get(
             'tried_to_login') else None
@@ -251,4 +254,4 @@ def build_table_data(columns, rows):
 if __name__ == '__main__':
     # Loads the selected config when the application starts
     app.config.from_object(config.DevelopmentConfig)
-    app.run(host='0.0.0.0', port=5001)
+    app.run(host='0.0.0.0', port=5000)

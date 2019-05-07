@@ -17,7 +17,7 @@ html, body {
 }
 
 .main_options {
-    padding: 8px 0;
+    padding: 6px 0;
 }
 
 .db_tree, #nav-tabContent, .main_options_block {
@@ -27,7 +27,6 @@ html, body {
 .main_options_block {
     border-top-left-radius: .25rem;
     border-top-right-radius: .25rem;
-    height: 42px;
 }
 
 .db_tree {

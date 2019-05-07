@@ -1,6 +1,6 @@
 FROM python:3.7.3-alpine3.9
 
-ENV SDAWI_VERSION 0.2.2
+ENV SDAWI_VERSION 0.3.3
 
 RUN apk update \
       && apk add --no-cache postgresql-dev \
