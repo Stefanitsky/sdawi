@@ -12,6 +12,7 @@ class BaseConfig:
 	'''
 	DEBUG = True
 	TESTING = False
+	AVAILABLE_LANGUAGES = ['en', 'ru']
 
 
 class ProductionConfig(BaseConfig):

@@ -1,0 +1,15 @@
+{
+    "login": {
+        "title": "Форма авторизации",
+        "db_engine": "Выбор СУБД",
+        "host": "Сервер",
+        "port": "Порт",
+        "username": "Имя пользователя",
+        "password": "Пароль",
+        "login": "Авторизация"
+    },
+    "sdawi": {
+        "title": "Simple Database Access Web Interface",
+        "logout": "Выход"
+    }
+}

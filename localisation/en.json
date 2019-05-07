@@ -1,0 +1,15 @@
+{
+    "login": {
+        "title": "Login",
+        "db_engine": "Database engine",
+        "host": "Host",
+        "port": "Port",
+        "username": "Username",
+        "password": "Password",
+        "login": "Login"
+    },
+    "sdawi": {
+        "title": "Simple Database Access Web Interface",
+        "logout": "Logout",
+    }
+}
