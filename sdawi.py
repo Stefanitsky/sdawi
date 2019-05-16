@@ -1,4 +1,4 @@
-'''
+﻿'''
 SDAWI - Simple Database Access Web Interface.
 Allows you to work with different types of databases
 through a web interface.
